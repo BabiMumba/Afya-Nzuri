@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HealthCare</string>
+    <string name="create_count">Vous n\'avez pas de compte ? <font color="#1CBEF5">Créer un compte</font></string>
 </resources>

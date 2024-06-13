@@ -29,6 +29,7 @@
             android:text="HealthCare"
             android:textColor="@color/primary"
             android:textSize="@dimen/_20ssp"
+            android:fontFamily="@font/poppins_bold"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -37,6 +38,7 @@
             android:text="votre santé est notre priorité"
             android:textColor="@color/primary"
             android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/poppins_regular"
             />
 
     </LinearLayout>
