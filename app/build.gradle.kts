@@ -48,4 +48,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    implementation ("com.intuit.sdp:sdp-android:1.0.6")//cette bibliothèque permet de gérer les tailles des éléments de l'interface utilisateur
+    implementation ("com.intuit.ssp:ssp-android:1.0.6")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.tbuonomo:dotsindicator:5.0")
+
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
 }

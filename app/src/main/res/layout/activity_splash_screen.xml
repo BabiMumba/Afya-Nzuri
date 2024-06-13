@@ -8,12 +8,38 @@
     android:layout_height="match_parent"
     tools:context=".View.SplashScreenActivity">
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/logo_tmp"
         android:layout_centerInParent="true"
         android:id="@+id/imageView"
         android:contentDescription="@string/app_name"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/_10sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_app"
+            android:text="HealthCare"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/_20ssp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/slogan"
+            android:text="votre santé est notre priorité"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/_10ssp"
+            />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
