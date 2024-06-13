@@ -18,6 +18,8 @@
        >
        <com.google.android.material.card.MaterialCardView
            android:layout_marginTop="@dimen/_40sdp"
+           android:layout_marginStart="@dimen/_10sdp"
+           android:layout_marginEnd="@dimen/_10sdp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:padding="@dimen/_12sdp"
@@ -125,6 +127,62 @@
                android:textColor="@color/primary_text"
                android:layout_marginTop="@dimen/_10sdp"
                android:inputType="phone"
+               />
+           <EditText
+               android:id="@+id/adresse"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/background_input_new"
+               android:hint="Adresse"
+               android:padding="@dimen/_10sdp"
+               android:textSize="@dimen/_12ssp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColorHint="@color/grey"
+               android:textColor="@color/primary_text"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:inputType="textPostalAddress"
+               />
+           <EditText
+               android:id="@+id/date_naissance"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/background_input_new"
+               android:hint="Date de naissance"
+               android:padding="@dimen/_10sdp"
+               android:textSize="@dimen/_12ssp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColorHint="@color/grey"
+               android:textColor="@color/primary_text"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:inputType="date"
+               />
+           <EditText
+               android:id="@+id/poid_taille"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/background_input_new"
+               android:hint="Poid et Taille"
+               android:padding="@dimen/_10sdp"
+               android:textSize="@dimen/_12ssp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColorHint="@color/grey"
+               android:textColor="@color/primary_text"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:inputType="text"
+               />
+
+           <com.google.android.material.button.MaterialButton
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Inscription"
+               android:textSize="@dimen/_12ssp"
+               android:textColor="@color/white"
+               android:fontFamily="@font/poppins_bold"
+               android:backgroundTint="@color/primary"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:id="@+id/login_btn"
+               app:cornerRadius="@dimen/_10sdp"
+               android:padding="@dimen/_10sdp"
                />
 
 

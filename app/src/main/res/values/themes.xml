@@ -3,7 +3,22 @@
     <style name="Base.Theme.HealthCare" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:windowAnimationStyle">
+            @style/MyCustomActivityAnimation</item>
     </style>
 
     <style name="Theme.HealthCare" parent="Base.Theme.HealthCare" />
+
+    <style name="MyCustomActivityAnimation"
+        parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">
+            @anim/activity_fade_in_animation</item>
+        <item name="android:activityOpenExitAnimation">
+            @anim/activity_fade_out_animation</item>
+        <item name="android:activityCloseEnterAnimation">
+            @anim/activity_fade_in_animation</item>
+        <item name="android:activityCloseExitAnimation">
+            @anim/activity_fade_out_animation</item>
+    </style>
 </resources>

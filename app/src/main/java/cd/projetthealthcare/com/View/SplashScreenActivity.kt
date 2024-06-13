@@ -27,7 +27,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         //fonction pour afficher le splash screen pendant 3 secondes
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, OnboardActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)
