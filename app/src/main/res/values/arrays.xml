@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="genre">
+        <item name="1">Genre</item>
+        <item name="2">Femme</item>
+        <item name="3">Homme</item>
+    </string-array>
+
+</resources>

@@ -100,20 +100,7 @@
                android:layout_marginTop="@dimen/_10sdp"
                android:inputType="textPersonName"
                />
-           <EditText
-               android:id="@+id/edt_email"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:background="@drawable/background_input_new"
-               android:hint="Votre mail"
-               android:padding="@dimen/_10sdp"
-               android:textSize="@dimen/_12ssp"
-               android:fontFamily="@font/poppins_regular"
-               android:textColorHint="@color/grey"
-               android:textColor="@color/primary_text"
-               android:layout_marginTop="@dimen/_10sdp"
-               android:inputType="textEmailAddress"
-               />
+
            <EditText
                android:id="@+id/edt_phone"
                android:layout_width="match_parent"
@@ -169,6 +156,34 @@
                android:textColor="@color/primary_text"
                android:layout_marginTop="@dimen/_10sdp"
                android:inputType="text"
+               />
+           <EditText
+               android:id="@+id/edt_email"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/background_input_new"
+               android:hint="Votre mail"
+               android:padding="@dimen/_10sdp"
+               android:textSize="@dimen/_12ssp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColorHint="@color/grey"
+               android:textColor="@color/primary_text"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:inputType="textEmailAddress"
+               />
+           <EditText
+               android:id="@+id/edt_password"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/background_input_new"
+               android:hint="Mot de passe"
+               android:padding="@dimen/_10sdp"
+               android:textSize="@dimen/_12ssp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColorHint="@color/grey"
+               android:textColor="@color/primary_text"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:inputType="textPassword"
                />
 
            <com.google.android.material.button.MaterialButton

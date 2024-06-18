@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray"
+    android:padding="@dimen/_5sdp"
+    tools:context=".Auth.PatientLoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/logo_tmp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_25ssp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/layout_border"
+            >
+            <TextView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inscription Medecin"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_20ssp"
+                android:textColor="@color/primary"
+
+                />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input_new"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_12sdp"
+                android:id="@+id/genre_choice"
+                android:entries="@array/genre"
+                android:prompt="@array/genre"
+                android:spinnerMode="dialog"
+                />
+            <EditText
+                android:id="@+id/edt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input_new"
+                android:hint="Votre nom"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/primary_text"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:inputType="textPersonName"
+                />
+            <EditText
+                android:id="@+id/edt_postenom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input_new"
+                android:hint="Poste-nom"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/primary_text"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:inputType="textPersonName"
+                />
+            <EditText
+                android:id="@+id/edt_prenom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input_new"
+                android:hint="Prenom"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/primary_text"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:inputType="textPersonName"
+                />
+            <EditText
+                android:id="@+id/edt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input_new"
+                android:hint="Telephone"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/primary_text"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:inputType="phone"
+                />
+
+
+            <EditText
+                android:id="@+id/edt_specialite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input_new"
+                android:hint="Specialite"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/primary_text"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:inputType="text"
+                />
+
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input_new"
+                android:hint="Votre mail"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/primary_text"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:inputType="textEmailAddress"
+                />
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input_new"
+                android:hint="Mot de passe"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/primary_text"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:inputType="textPassword"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inscription"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_bold"
+                android:backgroundTint="@color/primary"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/login_btn"
+                app:cornerRadius="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

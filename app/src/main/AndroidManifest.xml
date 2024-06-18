@@ -14,7 +14,13 @@
         android:theme="@style/Theme.HealthCare"
         tools:targetApi="31">
         <activity
+            android:name=".Auth.MedecinRegesterActivity"
+            android:exported="false" />
+        <activity
             android:name=".Auth.PatienRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.MedecinLoginActivity"
             android:exported="false" />
         <activity
             android:name=".Auth.PatientLoginActivity"

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_5sdp"
+    tools:context=".Auth.PatientLoginActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_15sdp"
+        >
+        <TextView
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/border_radius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connexion"
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/white"
+            android:padding="@dimen/_10sdp"
+            />
+
+
+    </com.google.android.material.card.MaterialCardView>
+    <LinearLayout
+        android:layout_marginTop="@dimen/_25ssp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/primary_text"
+            />
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_input_new"
+            android:hint="Ex: example@gmail.org"
+            android:padding="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColorHint="@color/grey"
+            android:textColor="@color/primary_text"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:inputType="textEmailAddress"
+            />
+
+        <TextView
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mot de passe"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/primary_text"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Ex: *********"
+            app:passwordToggleEnabled="true"
+            >
+            <EditText
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:textColor="@color/primary_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/password"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Connexion"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold"
+            android:backgroundTint="@color/primary"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/login_btn"
+            app:cornerRadius="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp"
+            />
+        <TextView
+            android:id="@+id/create_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_count"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/primary_text"
+            android:gravity="end"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>
