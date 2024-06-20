@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/backgroud"
+    android:layout_height="match_parent"
+    tools:context=".View.ChoixHopActivity">
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choix Hopital"
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            />
+    </Toolbar>
+    <LinearLayout
+        android:padding="@dimen/_5sdp"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choisissez un hopital pour continuer"
+            android:textSize="@dimen/_11ssp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_view"
+            tools:listitem="@layout/choice_hop_item"
+            tools:itemCount="2"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

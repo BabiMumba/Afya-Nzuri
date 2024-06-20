@@ -5,5 +5,13 @@
         <item name="2">Femme</item>
         <item name="3">Homme</item>
     </string-array>
+    <string-array
+        name="random_color">
+        <item name="1">#FF0000</item>
+        <item name="2">#FFA500</item>
+        <item name="3">#FFFF00</item>
+        <item name="4">#008000</item>
+
+    </string-array>
 
 </resources>

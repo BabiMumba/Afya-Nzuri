@@ -41,7 +41,6 @@
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="@dimen/_20ssp"
                 android:textColor="@color/primary"
-
                 />
 
             <Spinner
@@ -52,9 +51,9 @@
                 android:padding="@dimen/_12sdp"
                 android:id="@+id/genre_choice"
                 android:entries="@array/genre"
-                android:prompt="@array/genre"
                 android:spinnerMode="dialog"
                 />
+
             <EditText
                 android:id="@+id/edt_name"
                 android:layout_width="match_parent"
@@ -167,7 +166,7 @@
                 android:fontFamily="@font/poppins_bold"
                 android:backgroundTint="@color/primary"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:id="@+id/login_btn"
+                android:id="@+id/register_btn"
                 app:cornerRadius="@dimen/_10sdp"
                 android:padding="@dimen/_10sdp"
                 />

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RelativeLayout
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/dimunitif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:visibility="gone"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/round_person_2_24"
+                android:id="@+id/image_hop"
+                app:civ_border_color="@color/primary"
+                app:civ_border_width="@dimen/_1sdp"
+                android:layout_centerInParent="true"
+                />
+            <TextView
+                android:id="@+id/tv_short_name"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/round_user"
+                android:gravity="center"
+                android:text="B"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/poppins_semibold"
+                />
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_hopital_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/dimunitif"
+            android:text="Hopital Be"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_14ssp"
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

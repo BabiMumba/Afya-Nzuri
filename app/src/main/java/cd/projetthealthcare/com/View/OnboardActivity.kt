@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import cd.projetthealthcare.com.Auth.HopitalActivity
 import cd.projetthealthcare.com.Auth.MedecinLoginActivity
 import cd.projetthealthcare.com.Auth.MedecinRegesterActivity
 import cd.projetthealthcare.com.Auth.PatientLoginActivity
@@ -35,7 +36,10 @@ class OnboardActivity : AppCompatActivity() {
             startActivity(Intent(this, PatientLoginActivity::class.java))
         }
         binding.medecinBtn.setOnClickListener {
-            startActivity(Intent(this, MedecinLoginActivity::class.java))
+            startActivity(Intent(this, ChoixHopActivity::class.java))
+        }
+        binding.hopitalBtn.setOnClickListener {
+            startActivity(Intent(this, HopitalActivity::class.java))
         }
 
     }

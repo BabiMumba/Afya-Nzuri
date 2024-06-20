@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/_5sdp"
+    android:gravity="center"
     tools:context=".Auth.PatientLoginActivity">
 
     <com.google.android.material.card.MaterialCardView
