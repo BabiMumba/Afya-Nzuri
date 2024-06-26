@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeMenu"
+        android:title="Accueil"
+        android:icon="@drawable/baseline_home_24"
+        />
+    <item
+        android:id="@+id/rendev"
+        android:title="@string/rend"
+        android:icon="@drawable/baseline_calendar_month_24"/>
+
+    <item
+        android:id="@+id/calle"
+        android:title="" />
+
+    <item
+    android:id="@+id/chat_menu"
+    android:title="@string/chat"
+    android:icon="@drawable/baseline_message_24"/>
+    <item
+    android:id="@+id/setting"
+    android:title="parametre"
+    android:icon="@drawable/baseline_settings_24"/>
+
+</menu>

@@ -5,20 +5,53 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import cd.projetthealthcare.com.Fragment.HomeFragment
+import cd.projetthealthcare.com.Fragment.SettingFragment
 import cd.projetthealthcare.com.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        loadFragment(HomeFragment())
+        inifragment()
+        binding.bottomNavigationView.selectedItemId = R.id.homeMenu
 
+
+    }
+
+
+    fun loadFragment(fragment: Fragment){
+        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.nav_fragment, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+    fun inifragment(){
+        binding.bottomNavigationView.setOnItemSelectedListener{
+            when(it.itemId){
+                R.id.homeMenu -> {
+                    loadFragment(HomeFragment())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.setting -> {
+                    loadFragment(SettingFragment())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.chat_menu -> {
+                    loadFragment(SettingFragment())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.rendev -> {
+                    loadFragment(SettingFragment())
+                    return@setOnItemSelectedListener true
+                }
+                else -> return@setOnItemSelectedListener false
+            }
+        }
     }
 }

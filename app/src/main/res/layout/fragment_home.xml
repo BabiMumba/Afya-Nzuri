@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.HomeFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        >
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/lnyt_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_imv"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/steve"
+                app:civ_border_color="@color/primary"
+                app:civ_border_width="@dimen/_1sdp"
+                />
+            <LinearLayout
+                android:layout_toEndOf="@id/profile_imv"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bienvenue"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/primary_text"
+                    android:fontFamily="@font/poppins_light"
+                    />
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Babistone"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/primary_text"
+                    android:fontFamily="@font/poppins_semibold"
+                    />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/outline_notifications_24"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                />
+
+
+
+        </RelativeLayout>
+            <EditText
+                android:drawableStart="@drawable/baseline_search_24"
+                android:backgroundTint="#F6EBEB"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:textColor="@color/primary_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_edt"
+                android:drawableTint="@color/primary"
+                android:hint="rechercher un service"
+                android:background="@drawable/backsearch"
+                />
+        
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ban2"
+                android:scaleType="fitXY"
+                />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

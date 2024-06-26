@@ -18,7 +18,6 @@ class HopitalAdapter(val item:ArrayList<Hopital>):
         fun bind(hopital: Hopital) {
 
            // Glide.with(itemView).load(hopital.image).into(itemView.findViewById<ImageView>(R.id.image_hopital))
-
             //prendre la premiere lettre du nom de l'hopital
             val firstLetter = hopital.nom[0]
             itemView.findViewById<TextView>(R.id.tv_hopital_name).text = hopital.nom
@@ -46,9 +45,6 @@ class HopitalAdapter(val item:ArrayList<Hopital>):
         shape.shape = GradientDrawable.OVAL
         shape.setColor(Color.rgb(red, green, blue))
         holder.itemView.findViewById<TextView>(R.id.tv_short_name).background = shape
-
-
-
 
     }
 
