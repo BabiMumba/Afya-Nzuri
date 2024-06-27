@@ -6,67 +6,72 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     tools:context=".Fragment.HomeFragment">
-    <LinearLayout
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/_10sdp"
+        android:layout_height="match_parent"
         >
-        <RelativeLayout
-            android:layout_marginTop="@dimen/_10sdp"
-            android:id="@+id/lnyt_profile"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp"
             >
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_imv"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:src="@drawable/steve"
-                app:civ_border_color="@color/primary"
-                app:civ_border_width="@dimen/_1sdp"
-                />
-            <LinearLayout
-                android:layout_toEndOf="@id/profile_imv"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/lnyt_profile"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 >
-                <TextView
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_imv"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/steve"
+                    app:civ_border_color="@color/primary"
+                    app:civ_border_width="@dimen/_1sdp"
+                    />
+                <LinearLayout
+                    android:layout_toEndOf="@id/profile_imv"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bienvenue"
-                    android:textSize="@dimen/_12ssp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:textColor="@color/primary_text"
-                    android:fontFamily="@font/poppins_light"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bienvenue"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textColor="@color/primary_text"
+                        android:fontFamily="@font/poppins_light"
+                        />
+                    <TextView
+                        android:id="@+id/tv_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Steve"
+                        android:textSize="@dimen/_10ssp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textColor="@color/primary_text"
+                        android:fontFamily="@font/poppins_semibold"
+                        />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/outline_notifications_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
                     />
-                <TextView
-                    android:id="@+id/tv_user_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Babistone"
-                    android:textSize="@dimen/_10ssp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:textColor="@color/primary_text"
-                    android:fontFamily="@font/poppins_semibold"
-                    />
-            </LinearLayout>
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/outline_notifications_24"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_10sdp"
-                />
 
 
 
-        </RelativeLayout>
+            </RelativeLayout>
             <EditText
                 android:drawableStart="@drawable/baseline_search_24"
                 android:backgroundTint="#F6EBEB"
@@ -81,20 +86,206 @@
                 android:hint="rechercher un service"
                 android:background="@drawable/backsearch"
                 />
-        
-        <com.google.android.material.card.MaterialCardView
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ban2"
+                    android:scaleType="fitXY"
+                    />
+            </com.google.android.material.card.MaterialCardView>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:text="Catégories"
+                    android:layout_marginStart="@dimen/_10sdp"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="normal"
+                    android:text="Trouver un specialiste par domaine"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/circular_loader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:layout_marginEnd="@dimen/_40sdp"
+                        android:layout_marginBottom="@dimen/_40sdp"
+                        android:indeterminate="true"
+                        app:indicatorColor="@color/primary"
+                        app:indicatorDirectionCircular="clockwise"
+                        app:trackColor="@color/white"
+                        android:visibility="gone"
+                        app:trackThickness="6dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        app:reverseLayout="true"
+                        app:stackFromEnd="true"
+                        android:layout_below="@id/circular_loader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/special_recy"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="6"
+                        tools:listitem="@layout/specialitse_item"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/main_rel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:weightSum="2" >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/child_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:backgroundTint="#e091c9" >
+                    <RelativeLayout
+                        android:padding="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_alignParentEnd="true"
+                            android:maxHeight="@dimen/_80sdp"
+                            android:src="@drawable/soins_medicaux" />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="Prescription\nmedicale"
+                            android:textSize="@dimen/_10ssp"
+
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:id="@+id/child_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    android:backgroundTint="#85d1f2" >
+                    <RelativeLayout
+                        android:padding="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_alignParentEnd="true"
+                            android:maxHeight="@dimen/_80sdp"
+                            android:src="@drawable/doc1" />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="Fiche\nmedicale"
+                            android:textSize="@dimen/_10ssp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+            <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ban2"
-                android:scaleType="fitXY"
-                />
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ban2"
+                        android:scaleType="fitXY"
+                        />
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prenez Rendez-vous\n en quelque clique\npartout dans la ville de lubumbashi"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_semibold"
+                        />
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nos Docteurs"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 
 
 

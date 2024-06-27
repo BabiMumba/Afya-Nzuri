@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:backgroundTint="@color/backgroud"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:layout_margin="@dimen/_10sdp"
+    android:layout_width="@dimen/_100sdp"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:civ_border_width="@dimen/_4sdp"
+            app:civ_border_color="@color/primary"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/logo_tmp"
+            android:layout_gravity="center"
+            android:id="@+id/image_sp"
+            />
+        <TextView
+            android:id="@+id/nom_domaine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Domaine"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:textColor="@color/primary_text"
+            android:layout_marginTop="@dimen/_5sdp"
+            />
+
+
+
+
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

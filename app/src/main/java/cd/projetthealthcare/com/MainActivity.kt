@@ -20,11 +20,9 @@ class MainActivity : AppCompatActivity() {
         loadFragment(HomeFragment())
         inifragment()
         binding.bottomNavigationView.selectedItemId = R.id.homeMenu
-
-
+        
     }
-
-
+    
     fun loadFragment(fragment: Fragment){
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.nav_fragment, fragment)
