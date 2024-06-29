@@ -5,8 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import cd.projetthealthcare.com.Adapter.DoctoreAdapter
 import cd.projetthealthcare.com.Adapter.Speciality
-import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.Model.Doctore
 import cd.projetthealthcare.com.databinding.FragmentHomeBinding
 import specialite
 
@@ -20,6 +21,7 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         inispecialiste()
+        iniDoctore()
 
 
         return binding.root
@@ -45,5 +47,16 @@ class HomeFragment : Fragment() {
         binding.specialRecy.setHasFixedSize(true)
 
 
+    }
+
+    fun iniDoctore(){
+        val liste_docteur = ArrayList<Doctore>()
+        liste_docteur.add(Doctore("Dr. MUKENDI", specialite= "Cardiologue"))
+        liste_docteur.add(Doctore("Dr. Steve", specialite= "Dentiste"))
+        liste_docteur.add(Doctore("Dr. Pierre sam", specialite= "Gynecologue"))
+        liste_docteur.add(Doctore("Dr. Babistone", specialite= "Pediatre"))
+
+        val adapter = DoctoreAdapter(liste_docteur)
+        binding.doctoreRecy.adapter = adapter
     }
 }

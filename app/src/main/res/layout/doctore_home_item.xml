@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:layout_marginTop="@dimen/_10sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:cardElevation="@dimen/_2sdp"
+    android:backgroundTint="@color/backgroud"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:layout_height="@dimen/_70sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:src="@drawable/steve"
+            android:id="@+id/dct_image"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/dct_image"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/_10sdp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr.Steve jobs"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/primary_text"
+                android:id="@+id/dct_name"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cardiologue"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/primary_text"
+                android:id="@+id/dct_domaine"
+                />
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="4.5"
+                android:stepSize="0.1"
+                android:id="@+id/dct_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:progressTint="@color/jaune"
+                />
+
+        </LinearLayout>
+
+            
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

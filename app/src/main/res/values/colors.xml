@@ -18,4 +18,5 @@
     <color name="jaune">#FFC107</color>
     <color name="bleu">#0051FF</color>
     <color name="grise">#3CC5BCBC</color>
+    <color name="red">#FF0000</color>
 </resources>

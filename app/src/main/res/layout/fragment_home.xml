@@ -280,6 +280,16 @@
                     android:fontFamily="@font/poppins_bold"
                     />
             </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/doctore_recy"
+                tools:itemCount="4"
+                tools:listitem="@layout/doctore_home_item"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                />
 
 
 
