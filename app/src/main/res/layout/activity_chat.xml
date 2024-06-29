@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Malothy"
+                android:text="Dr.Steve"
                 android:textColor="@color/white"
                 android:layout_toEndOf="@id/image_profile"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -117,7 +117,7 @@
             android:singleLine="false"
             android:textColor="@color/black"
             android:textColorHint="#00838F"
-            tools:ignore="VisualLintTextFieldSize" />
+         />
 
         <ImageButton
             android:id="@+id/btn_send"
@@ -126,7 +126,6 @@
             android:layout_gravity="bottom"
             android:layout_marginHorizontal="4dp"
             android:background="@drawable/bg_send_icon"
-            android:contentDescription="@string/send_message_btn"
             android:src="@drawable/ic_send"
             tools:ignore="ImageContrastCheck" />
 

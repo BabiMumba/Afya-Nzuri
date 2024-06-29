@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import cd.projetthealthcare.com.Adapter.DoctoreAdapter
 import cd.projetthealthcare.com.Adapter.Speciality
 import cd.projetthealthcare.com.Model.Doctore
+import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.View.NotifcationActivity
 import cd.projetthealthcare.com.databinding.FragmentHomeBinding
 import specialite
 
@@ -22,8 +24,9 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         inispecialiste()
         iniDoctore()
-
-
+        binding.notificationIc.setOnClickListener {
+            Utils.newIntent(requireActivity(),NotifcationActivity::class.java)
+        }
         return binding.root
     }
 

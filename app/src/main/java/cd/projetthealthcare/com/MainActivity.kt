@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import cd.projetthealthcare.com.Fragment.HomeFragment
+import cd.projetthealthcare.com.Fragment.MessageFragment
 import cd.projetthealthcare.com.Fragment.RendeVFragment
 import cd.projetthealthcare.com.Fragment.SettingFragment
 import cd.projetthealthcare.com.databinding.ActivityMainBinding
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.chat_menu -> {
-                    loadFragment(SettingFragment())
+                    loadFragment(MessageFragment())
                     return@setOnItemSelectedListener true
                 }
                 R.id.rendev -> {
