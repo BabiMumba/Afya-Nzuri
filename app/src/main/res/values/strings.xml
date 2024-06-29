@@ -7,4 +7,5 @@
     <string name="message">imagereceive</string>
     <string name="received_message">bonjour</string>
     <string name="seen">vu</string>
+    <string name="send_message_btn">decription msg</string>
 </resources>
