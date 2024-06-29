@@ -17,6 +17,7 @@ class MessageFragment : Fragment() {
     ): View {
         binding = FragmentMessageBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
+
         return binding.root
     }
 }
