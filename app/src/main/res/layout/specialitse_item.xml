@@ -19,7 +19,7 @@
             app:civ_border_color="@color/primary"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
-            android:src="@drawable/logo_tmp"
+            android:src="@drawable/logo_v"
             android:layout_gravity="center"
             android:id="@+id/image_sp"
             />

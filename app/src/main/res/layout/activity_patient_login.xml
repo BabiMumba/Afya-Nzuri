@@ -10,30 +10,29 @@
     android:padding="@dimen/_5sdp"
     android:gravity="center"
     tools:context=".Auth.PatientLoginActivity">
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_marginTop="@dimen/_40sdp"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_12sdp"
-        app:cardCornerRadius="@dimen/_15sdp"
+        android:orientation="vertical"
         >
+        <ImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/logo_v"
+            />
         <TextView
-            android:layout_margin="@dimen/_10sdp"
-            android:background="@drawable/border_radius"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connexion"
+            android:text="Afia Nzuri"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:textSize="@dimen/_15ssp"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:textColor="@color/white"
-            android:padding="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_semibold"
             />
+    </LinearLayout>
 
-
-    </com.google.android.material.card.MaterialCardView>
     <LinearLayout
-        android:layout_marginTop="@dimen/_25ssp"
+        android:layout_marginTop="@dimen/_35ssp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -54,6 +53,9 @@
             android:background="@drawable/background_input_new"
             android:hint="Ex: example@gmail.org"
             android:padding="@dimen/_10sdp"
+            android:drawableStart="@drawable/baseline_mail_24"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableTint="@color/grey"
             android:textSize="@dimen/_12ssp"
             android:fontFamily="@font/poppins_regular"
             android:textColorHint="@color/grey"
@@ -86,6 +88,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/password"
+                android:drawableStart="@drawable/baseline_lock_24"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/grey"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,14 +98,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Connexion"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_bold"
             android:backgroundTint="@color/primary"
             android:layout_marginTop="@dimen/_10sdp"
             android:id="@+id/login_btn"
-            app:cornerRadius="@dimen/_5sdp"
-            android:padding="@dimen/_10sdp"
+            app:cornerRadius="@dimen/_10sdp"
+            android:padding="@dimen/_7sdp"
             />
         <TextView
             android:id="@+id/create_count"

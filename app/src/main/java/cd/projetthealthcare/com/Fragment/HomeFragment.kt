@@ -38,6 +38,7 @@ class HomeFragment : Fragment() {
         liste_specialiste.add(specialite("Pediatre", "https://www.google.com"))
         liste_specialiste.add(specialite("Generaliste", "https://www.google.com"))
         liste_specialiste.add(specialite("Ophtalmologue", "https://www.google.com"))
+
         liste_specialiste.add(specialite("Dermatologue", "https://www.google.com"))
         liste_specialiste.add(specialite("Neurologue", "https://www.google.com"))
         liste_specialiste.add(specialite("Urologue", "https://www.google.com"))

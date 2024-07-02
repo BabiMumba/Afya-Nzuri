@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     fun loadFragment(fragment: Fragment){
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.nav_fragment, fragment)
-        transaction.addToBackStack(null)
         transaction.commit()
     }
     fun inifragment(){
@@ -53,5 +52,14 @@ class MainActivity : AppCompatActivity() {
                 else -> return@setOnItemSelectedListener false
             }
         }
+    }
+
+    override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount > 1){
+            supportFragmentManager.popBackStack()
+        }else{
+            finish()
+        }
+        super.onBackPressed()
     }
 }

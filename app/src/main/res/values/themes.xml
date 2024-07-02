@@ -18,6 +18,8 @@
 
 
     <style name="Theme.HealthCare" parent="Base.Theme.HealthCare" />
+    <style name="Theme.Home" parent="Base.Theme.Home" />
+
 
     <style name="MyCustomActivityAnimation"
         parent="@android:style/Animation.Activity">

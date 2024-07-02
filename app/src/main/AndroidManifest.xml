@@ -11,8 +11,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HealthCare"
+        android:theme="@style/Theme.Home"
         tools:targetApi="31">
+        <activity
+            android:name=".View.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.ProfileDoctoreActivity"
+            android:exported="false" />
         <activity
             android:name=".View.NotifcationActivity"
             android:exported="false" />

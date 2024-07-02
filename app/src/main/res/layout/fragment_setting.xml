@@ -42,7 +42,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
-                    android:src="@drawable/steve"
+                    android:src="@drawable/avatar_user"
                     android:id="@+id/profile_imv"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -114,6 +114,7 @@
                         android:padding="@dimen/_10sdp"
                         >
                         <RelativeLayout
+                            android:id="@+id/edit_count"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_5sdp"
                             android:layout_marginStart="@dimen/_5sdp"

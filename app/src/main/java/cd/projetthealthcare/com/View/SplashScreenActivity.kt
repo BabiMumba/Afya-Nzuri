@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import cd.projetthealthcare.com.Auth.PatientLoginActivity
 import cd.projetthealthcare.com.MainActivity
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.databinding.ActivitySplashScreenBinding
@@ -27,9 +28,9 @@ class SplashScreenActivity : AppCompatActivity() {
 
         //fonction pour afficher le splash screen pendant 3 secondes
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, PatientLoginActivity::class.java)
             startActivity(intent)
             finish()
-        }, 3000)
+        }, 2000)
     }
 }

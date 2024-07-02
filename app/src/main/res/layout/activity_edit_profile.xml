@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroud"
+    tools:context=".View.EditProfileActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_cmps"
+        />
+    <androidx.core.widget.NestedScrollView
+        android:padding="@dimen/_10sdp"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:padding="@dimen/_2sdp"
+                        app:civ_border_color="@color/Accent"
+                        app:civ_border_width="@dimen/_2sdp"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:src="@drawable/avatar_user"
+                        android:id="@+id/image_profil"
+                        android:scaleType="centerCrop"
+                        />
+
+                </RelativeLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="Votre nom"
+                    >
+                    <EditText
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/primary_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/name"
+                        android:text="Stone"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="Votre Mail"
+                    >
+                    <EditText
+                        android:enabled="false"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/primary_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mail"
+                        android:text="stone@gmail.com"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="numero de tel"
+                    >
+                    <EditText
+                        android:maxEms="9"
+                        android:maxLength="9"
+                        android:imeOptions="actionNext"
+                        android:textColor="@color/primary_text"
+                        android:inputType="phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/number_phone"
+                        android:text="097593744"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="Adresse"
+                    >
+                    <EditText
+                        android:imeOptions="actionNext"
+                        android:inputType="textPostalAddress"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/primary_text"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/adresse"
+                        android:text="n.23,23eme arrondissement de paris"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/save_txt"
+                        android:textAllCaps="false"
+                        android:id="@+id/btn_next_save"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:cornerRadius="@dimen/_5sdp"
+                        android:backgroundTint="@color/Accent"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:visibility="gone"
+                        android:id="@+id/progressBar"
+                        />
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

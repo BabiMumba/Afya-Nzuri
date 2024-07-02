@@ -6,15 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import cd.projetthealthcare.com.R
-import cd.projetthealthcare.com.databinding.ActivityNotifcationBinding
-import com.bumptech.glide.Glide
+import cd.projetthealthcare.com.databinding.ActivityEditProfileBinding
 
-class NotifcationActivity : AppCompatActivity() {
-    lateinit var binding: ActivityNotifcationBinding
+class EditProfileActivity : AppCompatActivity() {
+    lateinit var binding: ActivityEditProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNotifcationBinding.inflate(layoutInflater)
+        binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Glide.with(this).asGif().load(R.raw.notificati).into(binding.emptyListe)
+        binding.toolbar.toolbarTitle.text = "Modifier le profil"
+        binding.toolbar.backBtn.setOnClickListener {
+            onBackPressed()
+        }
     }
 }
