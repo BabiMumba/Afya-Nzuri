@@ -16,6 +16,9 @@
        android:layout_height="match_parent"
        android:orientation="vertical"
        >
+       <Toolbar
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
 
        <LinearLayout
            android:layout_marginTop="@dimen/_25ssp"
@@ -172,8 +175,9 @@
                android:backgroundTint="@color/primary"
                android:layout_marginTop="@dimen/_10sdp"
                android:id="@+id/login_btn"
+               android:textAllCaps="false"
                app:cornerRadius="@dimen/_10sdp"
-               android:padding="@dimen/_10sdp"
+               android:padding="@dimen/_7sdp"
                />
 
 
