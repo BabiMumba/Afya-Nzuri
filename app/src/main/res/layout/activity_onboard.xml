@@ -6,88 +6,88 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroud"
+    android:background="@color/card_background"
     tools:context=".View.OnboardActivity">
-    <TextView
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/logo_v"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        />
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Qui etes-vous ?"
-        android:textSize="@dimen/_25ssp"
-        android:textColor="@color/primary"
-        android:fontFamily="@font/poppins_bold"
-        android:layout_marginTop="@dimen/_50sdp"
-        android:gravity="center"
-        android:id="@+id/textView"
+        android:src="@drawable/do1"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:alpha="0.4"
+        android:layout_alignParentTop="true"
+        />
+
     <LinearLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/main_ln"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true"
+        android:background="@drawable/layout_border"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/_10sdp"
         >
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/patient_btn"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardBackgroundColor="@color/primary"
-
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Patient"
-                android:textSize="@dimen/_20ssp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"
-                android:gravity="center"
-                android:padding="@dimen/_10sdp"
-                />
-
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/medecin_btn"
+            android:text="Bienvenue sur\n Afya Nzuri"
+            android:textSize="@dimen/_17ssp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/primary"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardBackgroundColor="@color/primary"
-
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Medecin"
-                android:textSize="@dimen/_20ssp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"
-                android:gravity="center"
-                android:padding="@dimen/_10sdp"
-                />
-
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/hopital_btn"
+            android:text="Veuillez choisir votre profil"
+            android:textSize="@dimen/_15ssp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/secondary_text"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardBackgroundColor="@color/primary"
+            android:text="Patient"
+            android:textSize="@dimen/_15ssp"
+            android:fontFamily="@font/poppins_regular"
+            android:id="@+id/btn_patient"
+            android:textAllCaps="false"
+            android:padding="@dimen/_10sdp"
+            app:cornerRadius="@dimen/_10sdp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medecin"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_regular"
+            android:id="@+id/btn_medecin"
+            android:textAllCaps="false"
+            android:padding="@dimen/_10sdp"
+            app:cornerRadius="@dimen/_10sdp"
+            />
 
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hopital"
-                android:textSize="@dimen/_20ssp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"
-                android:gravity="center"
-                android:padding="@dimen/_10sdp"
-                />
 
-        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

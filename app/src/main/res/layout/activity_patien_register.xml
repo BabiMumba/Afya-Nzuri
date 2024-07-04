@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/gray"
-    android:padding="@dimen/_5sdp"
     tools:context=".Auth.PatientLoginActivity">
 
    <LinearLayout
@@ -16,9 +15,7 @@
        android:layout_height="match_parent"
        android:orientation="vertical"
        >
-       <Toolbar
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+
 
        <LinearLayout
            android:layout_marginTop="@dimen/_25ssp"
@@ -31,7 +28,8 @@
                android:layout_marginTop="@dimen/_10sdp"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="Inscription"
+               android:text="Inscription Patient"
+               android:gravity="center"
                android:fontFamily="@font/poppins_bold"
                android:textSize="@dimen/_20ssp"
                android:textColor="@color/primary"

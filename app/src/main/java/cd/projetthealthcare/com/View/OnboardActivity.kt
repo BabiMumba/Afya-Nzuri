@@ -10,6 +10,7 @@ import cd.projetthealthcare.com.Auth.HopitalActivity
 import cd.projetthealthcare.com.Auth.MedecinLoginActivity
 import cd.projetthealthcare.com.Auth.MedecinRegesterActivity
 import cd.projetthealthcare.com.Auth.PatientLoginActivity
+import cd.projetthealthcare.com.MainActivity
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.databinding.ActivityOnboardBinding
 
@@ -32,14 +33,11 @@ class OnboardActivity : AppCompatActivity() {
 
     }
     fun init_clic(){
-        binding.patientBtn.setOnClickListener {
-            startActivity(Intent(this, PatientLoginActivity::class.java))
+        binding.btnPatient.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
-        binding.medecinBtn.setOnClickListener {
-            startActivity(Intent(this, ChoixHopActivity::class.java))
-        }
-        binding.hopitalBtn.setOnClickListener {
-            startActivity(Intent(this, HopitalActivity::class.java))
+        binding.btnMedecin.setOnClickListener {
+            startActivity(Intent(this, MedecinLoginActivity::class.java))
         }
 
     }

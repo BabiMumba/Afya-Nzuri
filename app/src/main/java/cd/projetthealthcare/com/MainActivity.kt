@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         loadFragment(HomeFragment())
         inifragment()
         binding.bottomNavigationView.selectedItemId = R.id.homeMenu
+
         
     }
     
