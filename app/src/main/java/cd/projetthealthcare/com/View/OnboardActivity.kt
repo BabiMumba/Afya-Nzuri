@@ -34,7 +34,7 @@ class OnboardActivity : AppCompatActivity() {
     }
     fun init_clic(){
         binding.btnPatient.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, PatientLoginActivity::class.java))
         }
         binding.btnMedecin.setOnClickListener {
             startActivity(Intent(this, MedecinLoginActivity::class.java))

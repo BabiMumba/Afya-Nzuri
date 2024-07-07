@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "49662730818",
+    "project_id": "afyanzuridb",
+    "storage_bucket": "afyanzuridb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49662730818:android:2f4e48937bb326f83303db",
+        "android_client_info": {
+          "package_name": "cd.projetthealthcare.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDot3vZVnFxrcKb8K1mFkF3klj-kcvRcBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

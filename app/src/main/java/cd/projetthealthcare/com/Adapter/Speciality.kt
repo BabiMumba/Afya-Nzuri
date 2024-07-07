@@ -20,7 +20,7 @@ class Speciality(var userList: ArrayList<specialite>) : RecyclerView.Adapter<Spe
     // ViewHolder pour afficher chaque élément de la liste
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.nom_domaine)
-       // val imageView: ImageView = itemView.findViewById(R.id.image_sp)
+       val imageView: ImageView = itemView.findViewById(R.id.image_sp)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -44,14 +44,14 @@ class Speciality(var userList: ArrayList<specialite>) : RecyclerView.Adapter<Spe
             Toast.makeText(context, "clique sur ${currentUser.domaine}", Toast.LENGTH_SHORT).show()
         }
 
-     /*   Glide
+        Glide
             .with(holder.itemView.context)
             .load(currentUser.image)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             //.apply(RequestOptions.overrideOf(300,600))
             .centerInside()
             .placeholder(circularProgressDrawable)
-            .into(holder.imageView)*/
+            .into(holder.imageView)
 
 
 

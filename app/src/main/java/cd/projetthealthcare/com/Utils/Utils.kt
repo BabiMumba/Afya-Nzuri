@@ -69,12 +69,12 @@ object Utils {
         editor.putString("name",name_user)
         editor.apply()
     }
-    fun IsVendeur(context: Context):Boolean{
+    fun IsDoctor(context: Context):Boolean{
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         return sharedPreferences.getBoolean("isVendeur",false)
     }
 
-    fun saveVendeur(context: Context,isVendeur:Boolean){
+    fun saveDoctor(context: Context,isVendeur:Boolean){
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putBoolean("isVendeur",isVendeur)
@@ -89,6 +89,22 @@ object Utils {
         transaction.commit()
     }
 
+    fun getAge(toString: String): Int {
+        //donc la date doit etre en format jj/mm/yyyy
+        val date = toString.split("/")
+        val year = date[2].toInt()
+        val month = date[1].toInt()
+        val day = date[0].toInt()
+        val currentYear = java.sql.Timestamp(System.currentTimeMillis()).toString().split(" ")[0].split("-")[0].toInt()
+        val currentMonth = java.sql.Timestamp(System.currentTimeMillis()).toString().split(" ")[0].split("-")[1].toInt()
+        val currentDay = java.sql.Timestamp(System.currentTimeMillis()).toString().split(" ")[0].split("-")[2].toInt()
+        var age = currentYear - year
+        if (currentMonth < month || (currentMonth == month && currentDay < day)) {
+            age--
+        }
+        return age
+
+    }
 
 
 }
