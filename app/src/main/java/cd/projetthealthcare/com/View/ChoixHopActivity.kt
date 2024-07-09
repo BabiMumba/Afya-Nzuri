@@ -42,15 +42,8 @@ class ChoixHopActivity : AppCompatActivity() {
 
     fun ini_hop(){
         binding.recyclerView.apply {
-            val liste_hop = ArrayList<Hopital>()
-            liste_hop.add(Hopital(1,"Hopital General de Kinshasa", "https://www.google.com"))
-            liste_hop.add(Hopital(2,"Hopital du Cinquantenaire", "https://www.google.com"))
-            liste_hop.add(Hopital(3,"Hopital General de Reference de Lubumbashi", "https://www.google.com"))
-            liste_hop.add(Hopital(4,"Hopital General de Reference de Kisangani", "https://www.google.com"))
-            liste_hop.add(Hopital(5,"Hôpital Provincial de Matadi", "https://www.google.com"))
-            liste_hop.add(Hopital(6,"Sendwe hopital", "https://www.google.com"))
-            liste_hop.add(Hopital(7,"Clinic Universitaire", "https://www.google.com"))
 
+            val liste_hop = Utils.liste_hop()
             val myadapter = HopitalAdapter(liste_hop)
             binding.recyclerView.adapter = myadapter
             myadapter.setOnItemClickListener(object : HopitalAdapter.OnItemClickListener{
@@ -83,6 +76,7 @@ class ChoixHopActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     //on a bien enregistrer l'hopital
+                    Utils.saveDoctor(this, true)
                     Utils.showToast(this,"Hopital enregistrer")
                     Utils.newIntent(this, MainActivity::class.java)
                     finish()

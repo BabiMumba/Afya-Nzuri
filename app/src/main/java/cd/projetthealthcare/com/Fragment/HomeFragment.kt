@@ -53,6 +53,8 @@ class HomeFragment : Fragment() {
         liste_specialiste.add(specialite("Chirurgien", "https://cdn-icons-png.flaticon.com/128/1722/1722975.png"))
         liste_specialiste.add(specialite("Radiologue", "https://cdn-icons-png.flaticon.com/128/9098/9098623.png"))
         liste_specialiste.add(specialite("Gynecologue", "https://cdn-icons-png.flaticon.com/128/6401/6401484.png"))
+        liste_specialiste.add(specialite("Ophtalmologue", "https://cdn-icons-png.flaticon.com/128/9352/9352217.png"))
+        liste_specialiste.add(specialite("Generaliste", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuWsH594F9AqoKK4RQi5u_vZaSspuECWzglw&usqp=CAU"))
 
         val adapter = Speciality(liste_specialiste)
         binding.specialRecy.adapter = adapter

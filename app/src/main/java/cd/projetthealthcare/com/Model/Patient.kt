@@ -10,8 +10,9 @@ data class Patient(
     val nom: String,
     val password: String,
     val prenom: String,
+    val poste_nom: String,
     val telephone: String
 )
 {
-    constructor() : this("", 0, "", "", "", "", "", "", "", "")
+    constructor() : this("", 0, "", "", "", "", "", "","", "", "")
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/call_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler_view"
+        tools:listitem="@layout/choice_hop_item"
+        tools:itemCount="2"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_alignParentTop="true"
+        android:backgroundTint="@color/rouge"
+        android:padding="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:text="Appeler"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/call_btn"
+        app:cornerRadius="@dimen/_10sdp"
+        />
+
+</RelativeLayout>

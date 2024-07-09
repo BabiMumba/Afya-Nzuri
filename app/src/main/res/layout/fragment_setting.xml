@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bienvenue sur votre profile"
+                        android:text="Votre profile"
                         android:textSize="@dimen/_10sdp"
                         android:textColor="@color/grey"
                         android:layout_marginStart="@dimen/_10sdp"
@@ -133,39 +133,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Personnaliser votre profile"
-                                android:textSize="@dimen/_13sdp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/black"
-                                android:layout_marginStart="@dimen/_10sdp"
-                                android:layout_centerVertical="true"
-                                />
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_arrow_forward_ios_24"
-                                android:layout_alignParentEnd="true"
-                                />
-
-                        </RelativeLayout>
-                        <RelativeLayout
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_5sdp"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <ImageView
-                                android:id="@+id/ic2_imv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_payments_24"
-                                app:tint="@color/primary"
-                                />
-                            <TextView
-                                android:layout_toEndOf="@id/ic2_imv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Methode de Paiement"
                                 android:textSize="@dimen/_13sdp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:textColor="@color/black"
@@ -279,39 +246,6 @@
                                 />
 
                         </RelativeLayout>
-                        <RelativeLayout
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_5sdp"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <ImageView
-                                android:id="@+id/ic6_imv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_call_24"
-                                app:tint="@color/primary"
-                                />
-                            <TextView
-                                android:layout_toEndOf="@id/ic6_imv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Numero d'urgence"
-                                android:textSize="@dimen/_13sdp"
-                                android:textColor="@color/black"
-                                android:layout_marginStart="@dimen/_10sdp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:layout_centerVertical="true"
-                                />
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_arrow_forward_ios_24"
-                                android:layout_alignParentEnd="true"
-                                />
-
-                        </RelativeLayout>
 
 
                     </LinearLayout>
@@ -410,7 +344,7 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:backgroundTint="@color/card_background"
+                android:backgroundTint="@color/rouge"
                 android:elevation="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
                 >
@@ -425,7 +359,7 @@
                         android:layout_height="wrap_content"
                         android:text="Déconnexion"
                         android:textSize="@dimen/_15sdp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:layout_gravity="center_vertical"
                         />
                     <ImageView
@@ -433,6 +367,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/baseline_logout_24"
+                        app:tint="@color/white"
                         android:layout_marginStart="@dimen/_10sdp"
                         />
 

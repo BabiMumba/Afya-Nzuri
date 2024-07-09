@@ -52,6 +52,7 @@ class MedecinLoginActivity : AppCompatActivity() {
                      FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener {it->
                           if (it.isSuccessful) {
                               Utils.savenameDoctore(this, medecin!!)
+                              Utils.saveDoctor(this, true)
                             Utils.newIntentFinish(this, MainActivity::class.java)
                             Utils.isloading(binding.loginBtn,binding.loader,false)
                           } else {

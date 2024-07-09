@@ -43,78 +43,126 @@
                         />
 
                 </RelativeLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="@dimen/_5sdp"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:text="Nom"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+                <EditText
+                    android:id="@+id/edt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input_new"
                     android:hint="Votre nom"
-                    >
-                    <EditText
-                        android:imeOptions="actionNext"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/primary_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/name"
-                        android:text="Stone"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:inputType="textPersonName"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:hint="Votre Mail"
-                    >
-                    <EditText
-                        android:enabled="false"
-                        android:imeOptions="actionNext"
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/primary_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/mail"
-                        android:text="stone@gmail.com"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
+                    android:text="Post-Nom"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+                <EditText
+                    android:id="@+id/edt_postenom"
                     android:layout_width="match_parent"
-                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:hint="numero de tel"
-                    >
-                    <EditText
-                        android:maxEms="9"
-                        android:maxLength="9"
-                        android:imeOptions="actionNext"
-                        android:textColor="@color/primary_text"
-                        android:inputType="phone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/number_phone"
-                        android:text="097593744"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
+                    android:background="@drawable/background_input_new"
+                    android:hint="Poste-nom"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:inputType="textPersonName"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prenom"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+                <EditText
+                    android:id="@+id/edt_prenom"
                     android:layout_width="match_parent"
-                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:background="@drawable/background_input_new"
+                    android:hint="Prenom"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:inputType="textPersonName"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Telephone"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+                <EditText
+                    android:id="@+id/edt_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input_new"
+                    android:hint="Telephone"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:inputType="phone"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adresse"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+                <EditText
+                    android:id="@+id/adresse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input_new"
                     android:hint="Adresse"
-                    >
-                    <EditText
-                        android:imeOptions="actionNext"
-                        android:inputType="textPostalAddress"
-                        android:layout_width="match_parent"
-                        android:textColor="@color/primary_text"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/adresse"
-                        android:text="n.23,23eme arrondissement de paris"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:inputType="textPostalAddress"
+                    />
 
 
                 <RelativeLayout
@@ -126,18 +174,19 @@
                         android:layout_centerHorizontal="true"
                         android:text="@string/save_txt"
                         android:textAllCaps="false"
-                        android:id="@+id/btn_next_save"
+                        android:id="@+id/btn_update"
                         android:layout_marginTop="@dimen/_5sdp"
                         app:cornerRadius="@dimen/_5sdp"
                         android:backgroundTint="@color/Accent"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         />
-                    <ProgressBar
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:visibility="gone"
+                        android:indeterminate="true"
                         android:id="@+id/progressBar"
                         />
                 </RelativeLayout>

@@ -41,6 +41,7 @@ class PatienRegisterActivity : AppCompatActivity() {
                     binding.edtName.text.toString(),
                     binding.edtPassword.text.toString(),
                     binding.edtPrenom.text.toString(),
+                    binding.edtPostenom.text.toString(),
                     binding.edtPhone.text.toString()
                 )
                 registerbymail(patient){

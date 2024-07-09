@@ -4,3 +4,6 @@ package cd.projetthealthcare.com.Utils
     const val MEDECIN = "MEDECINS"
     const val HOPITAL = "HOPITAL"
     const val PATIANT = "PATIANTS"
+
+
+//liste des hpi

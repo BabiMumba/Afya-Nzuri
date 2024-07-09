@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import cd.bmduka.com.Utils.DATA
+import cd.projetthealthcare.com.Model.Hopital
 import cd.projetthealthcare.com.Model.Medecin
 import cd.projetthealthcare.com.Model.Patient
 import cd.projetthealthcare.com.R
@@ -120,6 +121,20 @@ object Utils {
         }
         return age
 
+    }
+
+
+
+    fun liste_hop():ArrayList<Hopital>{
+        val liste_hop = ArrayList<Hopital>()
+        liste_hop.add(Hopital(1,"Hopital General de Kinshasa", telephone = "+243 975937553"))
+        liste_hop.add(Hopital(2,"Hopital du Cinquantenaire", telephone = "+243 996745324"))
+        liste_hop.add(Hopital(3,"Hopital General de Reference de Lubumbashi", telephone = "+243 813456780"))
+        liste_hop.add(Hopital(4,"Hopital General de Reference de Kisangani", telephone = "+243 895643231"))
+        liste_hop.add(Hopital(5,"Hôpital Provincial de Matadi", telephone = "+243 853256322"))
+        liste_hop.add(Hopital(6,"Sendwe hopital", telephone = "+243 975937553"))
+        liste_hop.add(Hopital(7,"Clinic Universitaire", telephone = "+243 975388833"))
+        return liste_hop
     }
 
 

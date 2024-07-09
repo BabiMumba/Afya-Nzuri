@@ -28,7 +28,8 @@ class SettingFragment : Fragment() {
         binding.editCount.setOnClickListener {
             Utils.newIntent(requireActivity(), EditProfileActivity::class.java)
         }
-        binding.profileName.text = Utils.username(requireActivity())
+        GetName()
+
         binding.logout.setOnClickListener {
             logout()
         }
@@ -49,5 +50,13 @@ class SettingFragment : Fragment() {
         }
         dialog.setNegativeButton("Non"){_,_ ->}
         dialog.create().show()
+    }
+    fun GetName(){
+        binding.profileName.text = Utils.username(requireActivity())
+    }
+
+    override fun onResume() {
+        super.onResume()
+        GetName()
     }
 }
