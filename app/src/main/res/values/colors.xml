@@ -2,7 +2,7 @@
 <resources>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#1CBEF5</color>
-    <color name="rouge">#1CBEF5</color>
+    <color name="rouge">#FF0000</color>
     <color name="vert">#2FFF00</color>
     <color name="Accent">#1CBEF5</color>
     <color name="backgroud">#F7F7FA</color>

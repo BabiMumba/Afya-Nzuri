@@ -14,14 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/layout_circular_loader"
-            android:layout_centerInParent="true"
-            android:id="@+id/loader"
-            android:visibility="gone"
-            />
         <LinearLayout
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
@@ -36,7 +28,6 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 />
 
-
             <LinearLayout
                 android:layout_marginTop="@dimen/_25ssp"
                 android:layout_width="match_parent"
@@ -49,7 +40,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Inscription Patient"
+                    android:text="Inscription Medecin"
                     android:gravity="center"
                     android:fontFamily="@font/poppins_bold"
                     android:textSize="@dimen/_20ssp"
@@ -57,59 +48,34 @@
 
                     />
 
-                <Spinner
+                <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Langues parlees"
+                    android:textSize="@dimen/_10ssp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_regular"
                     android:background="@drawable/background_input_new"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:padding="@dimen/_12sdp"
-                    android:id="@+id/genre_choice"
-                    android:entries="@array/genre"
-                    android:spinnerMode="dialog"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/langue_choise"
+                    android:textAllCaps="false"
+                    app:cornerRadius="@dimen/_10sdp"
+                    android:padding="@dimen/_7sdp"
                     />
                 <EditText
-                    android:id="@+id/edt_name"
+                    android:id="@+id/edt_experiance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input_new"
-                    android:hint="Votre nom"
+                    android:hint="Annee d'experiance"
                     android:padding="@dimen/_10sdp"
                     android:textSize="@dimen/_12ssp"
                     android:fontFamily="@font/poppins_regular"
                     android:textColorHint="@color/grey"
                     android:textColor="@color/primary_text"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     />
-                <EditText
-                    android:id="@+id/edt_postenom"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_input_new"
-                    android:hint="Poste-nom"
-                    android:padding="@dimen/_10sdp"
-                    android:textSize="@dimen/_12ssp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColorHint="@color/grey"
-                    android:textColor="@color/primary_text"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:inputType="textPersonName"
-                    />
-                <EditText
-                    android:id="@+id/edt_prenom"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_input_new"
-                    android:hint="Prenom"
-                    android:padding="@dimen/_10sdp"
-                    android:textSize="@dimen/_12ssp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColorHint="@color/grey"
-                    android:textColor="@color/primary_text"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:inputType="textPersonName"
-                    />
-
                 <EditText
                     android:id="@+id/edt_phone"
                     android:layout_width="match_parent"
@@ -124,61 +90,32 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:inputType="phone"
                     />
-                <EditText
-                    android:id="@+id/adresse"
+
+
+                <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input_new"
-                    android:hint="Adresse"
-                    android:padding="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_12sdp"
+                    android:id="@+id/specialiter_choise"
+                    android:entries="@array/specialite"
+                    android:spinnerMode="dialog"
+                    />
+
+                <EditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input_new"
+                    android:hint="Description"
                     android:textSize="@dimen/_12ssp"
                     android:fontFamily="@font/poppins_regular"
                     android:textColorHint="@color/grey"
                     android:textColor="@color/primary_text"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:inputType="textPostalAddress"
-                    />
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Date de naissance"
-                    android:textSize="@dimen/_10ssp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/poppins_regular"
-                    android:background="@drawable/background_input_new"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/date_naissance_btn"
-                    android:textAllCaps="false"
-                    app:cornerRadius="@dimen/_10sdp"
-                    android:padding="@dimen/_7sdp"
-                    />
-                <EditText
-                    android:id="@+id/edt_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_input_new"
-                    android:hint="Votre mail"
-                    android:padding="@dimen/_10sdp"
-                    android:textSize="@dimen/_12ssp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColorHint="@color/grey"
-                    android:textColor="@color/primary_text"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:inputType="textEmailAddress"
-                    />
-                <EditText
-                    android:id="@+id/edt_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_input_new"
-                    android:hint="Mot de passe"
-                    android:padding="@dimen/_10sdp"
-                    android:textSize="@dimen/_12ssp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColorHint="@color/grey"
-                    android:textColor="@color/primary_text"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:inputType="textPassword"
+                    android:inputType="textMultiLine"
+                    android:paddingBottom="@dimen/_50sdp"
                     />
 
                 <com.google.android.material.button.MaterialButton
@@ -190,10 +127,18 @@
                     android:fontFamily="@font/poppins_bold"
                     android:backgroundTint="@color/primary"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/register_btn"
+                    android:id="@+id/continue_btn"
                     android:textAllCaps="false"
                     app:cornerRadius="@dimen/_10sdp"
                     android:padding="@dimen/_7sdp"
+                    />
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/loader"
+                    android:indeterminate="true"
+                    android:visibility="gone"
                     />
 
 

@@ -9,12 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cd.projetthealthcare.com.Model.Doctore
+import cd.projetthealthcare.com.Model.Medecin
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.View.ProfileDoctoreActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
-class DoctoreAdapter(val liste:ArrayList<Doctore>): RecyclerView.Adapter<DoctoreAdapter.UserViewHolder>() {
+class DoctoreAdapter(val liste:ArrayList<Medecin>): RecyclerView.Adapter<DoctoreAdapter.UserViewHolder>() {
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.dct_name)
         val specialiteTextView: TextView = itemView.findViewById(R.id.dct_domaine)
@@ -39,11 +40,8 @@ class DoctoreAdapter(val liste:ArrayList<Doctore>): RecyclerView.Adapter<Doctore
       //  holder.hopitalTextView.text = currentUser.hopital
         holder.itemView.setOnClickListener {
             //passer les données à l'activité suivante
-          val intent = Intent(holder.itemView.context, ProfileDoctoreActivity::class.java)
-            intent.putExtra("nom", currentUser.nom)
-            intent.putExtra("specialite", currentUser.specialite)
-            intent.putExtra("hopital", currentUser.hopital)
-            intent.putExtra("image", currentUser.image)
+            val intent = Intent(holder.itemView.context, ProfileDoctoreActivity::class.java)
+            intent.putExtra("id", currentUser.id)
             holder.itemView.context.startActivity(intent)
         }
 

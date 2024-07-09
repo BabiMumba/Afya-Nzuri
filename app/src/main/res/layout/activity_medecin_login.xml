@@ -40,6 +40,16 @@
         android:padding="@dimen/_10sdp"
         >
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connexion Medecin"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/primary_text"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
@@ -101,6 +111,15 @@
             android:id="@+id/login_btn"
             app:cornerRadius="@dimen/_5sdp"
             android:padding="@dimen/_10sdp"
+            />
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/loader"
+            android:visibility="gone"
             />
         <TextView
             android:id="@+id/create_count"

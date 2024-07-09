@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import cd.bmduka.com.Utils.DATA
+import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.Model.Patient
 import cd.projetthealthcare.com.R
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import java.security.Timestamp
@@ -46,10 +48,15 @@ object Utils {
     }
     fun username(context: Context):String{
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
-        return sharedPreferences.getString("name","").toString()
+        val prenom = sharedPreferences.getString("prenom","").toString()
+        val nom = sharedPreferences.getString("nom","").toString()
+        return "$prenom $nom"
     }
     fun isValidEmail(email: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+    fun isValidPassword(password: String): Boolean {
+        return password.length >= 6
     }
 
     fun getUID(mail:String):String{
@@ -63,12 +70,21 @@ object Utils {
 
         return id_user
     }
-    fun savename(context: Context,name_user:String){
+    fun savename(context: Context,name_user:Patient){
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putString("name",name_user)
+        editor.putString("nom",name_user.nom)
+        editor.putString("prenom",name_user.prenom)
         editor.apply()
     }
+    fun savenameDoctore(context: Context,name_user:Medecin){
+        val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("nom",name_user.nom)
+        editor.putString("prenom",name_user.prenom)
+        editor.apply()
+    }
+
     fun IsDoctor(context: Context):Boolean{
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         return sharedPreferences.getBoolean("isVendeur",false)
@@ -105,6 +121,7 @@ object Utils {
         return age
 
     }
+
 
 
 }

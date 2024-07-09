@@ -16,7 +16,7 @@
             android:layout_centerVertical="true"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
-            android:src="@drawable/steve"
+            android:src="@drawable/ava_doctore"
             android:id="@+id/dct_image"
             />
         <LinearLayout

@@ -10,6 +10,13 @@
       android:id="@+id/toolbar"
       layout="@layout/toolbar_cmps"
       />
+  <include
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    layout="@layout/layout_circular_loader"
+      android:id="@+id/loader_layout"
+      android:visibility="gone"
+    />
   <androidx.core.widget.NestedScrollView
       android:layout_above="@id/rend_layout"
       android:layout_below="@id/toolbar"
@@ -30,7 +37,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
-            android:src="@drawable/avatar_user"
+            android:src="@drawable/ava_doctore"
             android:id="@+id/profil_doctor"
             />
 
@@ -80,6 +87,7 @@
                 app:tint="@color/secondary_text" />
 
             <TextView
+                android:id="@+id/hoptital_doc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
@@ -109,6 +117,7 @@
                 android:text="Langue: Francais,Swahili,Englais"
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/_10ssp"
+                android:id="@+id/langue_doc"
                 android:textStyle="normal" />
 
           </LinearLayout>
@@ -146,7 +155,7 @@
             <ImageView
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="20sp"
-                android:src="@drawable/baseline_location_on_24"
+                android:src="@drawable/baseline_call_24"
                 app:tint="@color/secondary_text" />
 
             <TextView
@@ -154,6 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
                 android:text="Lubumbashi"
+                android:id="@+id/phone_doc"
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/_10ssp"
                 android:textStyle="normal" />
@@ -169,7 +179,6 @@
               android:textColor="@color/white"
               app:cornerRadius="@dimen/_10sdp"
               android:backgroundTint="@color/primary"
-              android:layout_gravity="center"
               android:textAllCaps="false"
               android:id="@+id/contact_btn"
             />
@@ -222,30 +231,6 @@
               />
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-          <ImageView
-              android:layout_gravity="center"
-              android:layout_width="@dimen/_20sdp"
-              android:layout_height="20sp"
-              android:src="@drawable/baseline_school_24"
-              app:tint="@color/primary"
-              />
-          <TextView
-              android:id="@+id/degree"
-              android:layout_marginStart="@dimen/_2sdp"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Degree: License en medecin interne"
-              android:textColor="@color/primary_text"
-              android:textSize="@dimen/_12ssp"
-              android:textStyle="normal"
-              />
-
-        </LinearLayout>
 
       </LinearLayout>
       <LinearLayout
@@ -263,6 +248,7 @@
             android:textColor="@color/primary_text"
             />
         <TextView
+            android:id="@+id/description_doctor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/descrip"
@@ -273,56 +259,6 @@
             android:textColor="@color/primary_text"
             android:fontFamily="@font/poppins_regular"
             />
-
-      </LinearLayout>
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_margin="@dimen/_10sdp"
-          android:orientation="vertical"
-          >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Localisation"
-            android:textStyle="bold"
-            android:textSize="@dimen/_10sdp"
-            android:textColor="@color/primary_text"
-            />
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/location"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
-            >
-          <RelativeLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/maps_img"
-                android:scaleType="fitXY"
-                />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#4A000000"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ouvrir avec Maps"
-                android:layout_centerInParent="true"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp"
-                />
-          </RelativeLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
 
       </LinearLayout>
       <LinearLayout

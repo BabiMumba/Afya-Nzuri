@@ -13,5 +13,16 @@
         <item name="4">#008000</item>
 
     </string-array>
+    <string-array name="specialite">
+        <item name="1">Specialite</item>
+        <item name="2">Cardiologue</item>
+        <item name="3">Dentiste</item>
+        <item name="4">Dermatologue</item>
+        <item name="5">Gynecologue</item>
+        <item name="6">Ophtalmologue</item>
+        <item name="7">Pediatre</item>
+        <item name="8">Generaliste</item>
+        <item name="9">Radiologue</item>
+    </string-array>
 
 </resources>

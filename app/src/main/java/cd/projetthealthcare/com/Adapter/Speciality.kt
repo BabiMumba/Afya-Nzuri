@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.View.FilterPageActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import specialite
@@ -38,10 +39,9 @@ class Speciality(var userList: ArrayList<specialite>) : RecyclerView.Adapter<Spe
         holder.nameTextView.text = currentUser.domaine
         holder.itemView.setOnClickListener {
             //passer les données à l'activité suivante
-           /* val intent = Intent(holder.itemView.context, FiltreActivity::class.java)
-            intent.putExtra("type", currentUser.domaine)
-            holder.itemView.context.startActivity(intent)*/
-            Toast.makeText(context, "clique sur ${currentUser.domaine}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(holder.itemView.context, FilterPageActivity::class.java)
+            intent.putExtra("domaine", currentUser.domaine)
+            holder.itemView.context.startActivity(intent)
         }
 
         Glide

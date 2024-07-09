@@ -6,14 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import cd.projetthealthcare.com.Model.Hopital
 import cd.projetthealthcare.com.R
+import com.google.android.material.card.MaterialCardView
 import java.util.Random
 
 class HopitalAdapter(val item:ArrayList<Hopital>):
     RecyclerView.Adapter<HopitalAdapter.myviewholder>() {
 
+    private var onItemClickListener: OnItemClickListener? = null
+    fun setOnItemClickListener(listener: OnItemClickListener){
+        onItemClickListener = listener
+    }
+    interface OnItemClickListener{
+        fun onItemClick(item: Hopital)
+    }
     class myviewholder(itemView: View):RecyclerView.ViewHolder(itemView){
         fun bind(hopital: Hopital) {
 
@@ -24,7 +33,16 @@ class HopitalAdapter(val item:ArrayList<Hopital>):
             //changer la backgroundtint
             val name = itemView.findViewById<TextView>(R.id.tv_short_name)
             name.text = firstLetter.toString()
-            // Définir les couleurs dans un tableau de ressources
+
+            itemView.findViewById<MaterialCardView>(R.id.contenaire_item).backgroundTintList =
+                if (hopital.isSelected) {
+                    val color = ContextCompat.getColorStateList(itemView.context, R.color.Accent)
+                    color
+                } else {
+                    //on laisse la couleur par defaut
+                    null
+                }
+
 
 
 
@@ -45,6 +63,16 @@ class HopitalAdapter(val item:ArrayList<Hopital>):
         shape.shape = GradientDrawable.OVAL
         shape.setColor(Color.rgb(red, green, blue))
         holder.itemView.findViewById<TextView>(R.id.tv_short_name).background = shape
+
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.onItemClick(item[position])
+            for (i in item){
+                i.isSelected = false
+            }
+            item[position].isSelected = true
+            notifyDataSetChanged()
+        }
+
 
     }
 

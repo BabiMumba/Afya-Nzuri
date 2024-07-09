@@ -1,6 +1,7 @@
 package cd.projetthealthcare.com.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +9,14 @@ import android.view.ViewGroup
 import cd.projetthealthcare.com.Adapter.DoctoreAdapter
 import cd.projetthealthcare.com.Adapter.Speciality
 import cd.projetthealthcare.com.Model.Doctore
+import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.View.FicheActivity
 import cd.projetthealthcare.com.View.NotifcationActivity
 import cd.projetthealthcare.com.View.PrescriptionActivity
 import cd.projetthealthcare.com.databinding.FragmentHomeBinding
+import com.google.firebase.firestore.FirebaseFirestore
 import specialite
 
 
@@ -35,6 +39,7 @@ class HomeFragment : Fragment() {
         binding.childOne.setOnClickListener {
             Utils.newIntent(requireActivity(),FicheActivity::class.java)
         }
+        binding.tvUserName.text = Utils.username(requireActivity())
         return binding.root
     }
 
@@ -56,14 +61,33 @@ class HomeFragment : Fragment() {
 
     }
 
-    fun iniDoctore(){
-        val liste_docteur = ArrayList<Doctore>()
-        liste_docteur.add(Doctore("Dr. MUKENDI", specialite= "Cardiologue"))
-        liste_docteur.add(Doctore("Dr. Steve", specialite= "Dentiste"))
-        liste_docteur.add(Doctore("Dr. Pierre sam", specialite= "Gynecologue"))
-        liste_docteur.add(Doctore("Dr. Babistone", specialite= "Pediatre"))
-
-        val adapter = DoctoreAdapter(liste_docteur)
-        binding.doctoreRecy.adapter = adapter
+    fun iniDoctore() {
+        binding.loader.visibility = View.VISIBLE
+        val liste_docteur = ArrayList<Medecin>()
+        val db = FirebaseFirestore.getInstance()
+        db.collection(MEDECIN)
+            .limit(3)
+            .get()
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    liste_docteur.clear()
+                    for (document in it.result!!) {
+                        val doctore = document.toObject(Medecin::class.java)
+                        liste_docteur.add(doctore)
+                        Log.d("TAG", "${document.id} => ${document.data}")
+                    }
+                    if (liste_docteur.isNotEmpty()) {
+                        val adapter = DoctoreAdapter(liste_docteur)
+                        binding.doctoreRecy.adapter = adapter
+                        binding.doctoreRecy.setHasFixedSize(true)
+                    } else {
+                        Utils.showToast(requireActivity(), "Aucun docteur disponible")
+                    }
+                    binding.loader.visibility = View.GONE
+                } else {
+                    Log.d("TAG", "Error getting documents: ", it.exception)
+                    binding.loader.visibility = View.GONE
+                }
+            }
     }
 }

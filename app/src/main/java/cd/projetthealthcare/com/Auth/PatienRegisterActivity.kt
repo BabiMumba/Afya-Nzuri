@@ -1,5 +1,6 @@
 package cd.projetthealthcare.com.Auth
 
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import cd.projetthealthcare.com.MainActivity
 import cd.projetthealthcare.com.Model.Patient
 import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.Utils.PATIANT
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.databinding.ActivityPatienRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class PatienRegisterActivity : AppCompatActivity() {
     lateinit var binding:ActivityPatienRegisterBinding
+    lateinit var datenaissance:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,7 +33,7 @@ class PatienRegisterActivity : AppCompatActivity() {
                 val uid = Utils.getUID(binding.edtEmail.text.toString())
                 val patient = Patient(
                     binding.adresse.text.toString(),
-                    Utils.getAge(binding.dateNaissance.text.toString()),
+                    Utils.getAge(datenaissance),
                     binding.edtEmail.text.toString(),
                     binding.genreChoice.selectedItem.toString(),
                     uid,
@@ -49,6 +52,19 @@ class PatienRegisterActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+        binding.dateNaissanceBtn.setOnClickListener {
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+            val datePickerDialog = android.app.DatePickerDialog(this,
+                android.app.DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                    datenaissance = "$dayOfMonth/${monthOfYear+1}/$year"
+                    binding.dateNaissanceBtn.setText(datenaissance)
+                }, year, month, day
+            )
+            datePickerDialog.show()
         }
 
     }
@@ -91,7 +107,7 @@ class PatienRegisterActivity : AppCompatActivity() {
         }else if (binding.genreChoice.selectedItem.toString() == "Genre"){
             Toast.makeText(this, "Votre Genre", Toast.LENGTH_SHORT).show()
             false
-        }else if (binding.dateNaissance.text.toString().isEmpty()){
+        }else if (binding.dateNaissanceBtn.text.toString()=="Date de naissance"){
             Toast.makeText(this, "Votre date de naissance", Toast.LENGTH_SHORT).show()
             false
         }else if (binding.edtEmail.text.toString().isEmpty()){
@@ -113,12 +129,12 @@ class PatienRegisterActivity : AppCompatActivity() {
     fun saveuser(patient: Patient){
         //save user in database
         val db = FirebaseFirestore.getInstance()
-        db.collection("patients")
+        db.collection(PATIANT)
             .document(patient.id)
             .set(patient)
             .addOnSuccessListener { documentReference ->
                 Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.toString()}")
-                Utils.savename(this,patient.nom)
+                Utils.savename(this,patient)
                 Utils.newIntentFinish(this, MainActivity::class.java)
                 binding.loader.loaderFrameLayout.visibility = View.GONE
             }

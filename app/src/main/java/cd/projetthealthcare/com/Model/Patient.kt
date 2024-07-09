@@ -12,3 +12,6 @@ data class Patient(
     val prenom: String,
     val telephone: String
 )
+{
+    constructor() : this("", 0, "", "", "", "", "", "", "", "")
+}

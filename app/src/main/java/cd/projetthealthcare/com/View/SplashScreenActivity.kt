@@ -12,6 +12,7 @@ import cd.projetthealthcare.com.Auth.PatientLoginActivity
 import cd.projetthealthcare.com.MainActivity
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.databinding.ActivitySplashScreenBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashScreenActivity : AppCompatActivity() {
     lateinit var binding: ActivitySplashScreenBinding
@@ -28,9 +29,23 @@ class SplashScreenActivity : AppCompatActivity() {
 
         //fonction pour afficher le splash screen pendant 3 secondes
         Handler(Looper.getMainLooper()).postDelayed({
+            checkuser()
+        }, 2000)
+    }
+
+    fun checkuser(){
+        //verifier si l'utilisateur est connecté
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            // User is signed in
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            // No user is signed in
             val intent = Intent(this, OnboardActivity::class.java)
             startActivity(intent)
             finish()
-        }, 2000)
+        }
     }
 }
