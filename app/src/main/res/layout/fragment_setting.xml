@@ -148,6 +148,7 @@
 
                         </RelativeLayout>
                         <RelativeLayout
+                            android:id="@+id/politique"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_5sdp"
                             android:layout_marginStart="@dimen/_5sdp"
@@ -181,6 +182,7 @@
 
                         </RelativeLayout>
                         <RelativeLayout
+                            android:id="@+id/condition"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_5sdp"
                             android:layout_marginStart="@dimen/_5sdp"
@@ -214,6 +216,7 @@
 
                         </RelativeLayout>
                         <RelativeLayout
+                            android:id="@+id/aboute_us"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_5sdp"
                             android:layout_marginStart="@dimen/_5sdp"

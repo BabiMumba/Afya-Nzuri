@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.util.Patterns
 import android.view.View
+import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -93,6 +95,16 @@ object Utils {
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         return sharedPreferences.getBoolean("isVendeur",false)
     }
+    fun ishomme(context: Context):Boolean{
+        val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
+        return sharedPreferences.getBoolean("homme",false)
+    }
+    fun savehomme(context: Context,isHomme:Boolean){
+        val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("homme",isHomme)
+        editor.apply()
+    }
 
     fun saveDoctor(context: Context,isVendeur:Boolean){
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
@@ -100,13 +112,32 @@ object Utils {
         editor.putBoolean("isVendeur",isVendeur)
         editor.apply()
     }
+    fun iniprofile(context: Context,image: ImageView){
+        val genre = ishomme(context)
+        val isdocteur = IsDoctor(context)
+        if (isdocteur){
+            if (genre){
+                image.setImageResource(R.drawable.docteur)
+            }else{
+                image.setImageResource(R.drawable.ava_doctore)
+            }
+        }else{
+            if (genre){
+                image.setImageResource(R.drawable.femme)
+            }else{
+                image.setImageResource(R.drawable.avatar_user)
+            }
+        }
 
-    fun loadfragemnt(context: Context,fragment: Fragment){
-        val transaction = (context as AppCompatActivity).supportFragmentManager.beginTransaction()
-        transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_out_left);
-        transaction.replace(R.id.nav_fragment, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+    }
+
+    fun checkgenre(context: Context,sexe:String){
+        //check genre
+        if (sexe == "Homme"){
+            savehomme(context,false)
+        }else{
+            savehomme(context,true)
+        }
     }
 
     fun getAge(toString: String): Int {

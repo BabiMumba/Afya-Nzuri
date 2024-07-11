@@ -13,6 +13,7 @@ import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.RENDEVOUS
 import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.View.DoctoListActivity
 import cd.projetthealthcare.com.databinding.FragmentRendeVBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,6 +27,9 @@ class RendeVFragment : Fragment() {
         binding = FragmentRendeVBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
         inirendev()
+        binding.fab.setOnClickListener {
+            Utils.newIntent(requireActivity(),DoctoListActivity::class.java)
+        }
         return binding.root
 
     }

@@ -1,17 +1,22 @@
 package cd.projetthealthcare.com.Fragment
 
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import cd.projetthealthcare.com.Adapter.DoctoreAdapter
 import cd.projetthealthcare.com.Adapter.Speciality
 import cd.projetthealthcare.com.Model.Doctore
 import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.Utils.Utils.iniprofile
+import cd.projetthealthcare.com.View.DoctoListActivity
 import cd.projetthealthcare.com.View.FicheActivity
 import cd.projetthealthcare.com.View.NotifcationActivity
 import cd.projetthealthcare.com.View.PrescriptionActivity
@@ -31,8 +36,12 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         inispecialiste()
         iniDoctore()
+        iniprofile(requireActivity(),binding.profileImv)
         binding.notificationIc.setOnClickListener {
             Utils.newIntent(requireActivity(),NotifcationActivity::class.java)
+        }
+        binding.showMore.setOnClickListener {
+            Utils.newIntent(requireActivity(), DoctoListActivity::class.java)
         }
         binding.childTwo.setOnClickListener {
             Utils.newIntent(requireActivity(),PrescriptionActivity::class.java)
@@ -71,6 +80,7 @@ class HomeFragment : Fragment() {
         val email = FirebaseAuth.getInstance().currentUser!!.email.toString()
         val myid = Utils.getUID(email)
         db.collection(MEDECIN)
+            .limit(3)
             .get()
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -96,4 +106,5 @@ class HomeFragment : Fragment() {
                 }
             }
     }
+
 }

@@ -14,6 +14,7 @@ import cd.projetthealthcare.com.Model.Patient
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.PATIANT
 import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.Utils.Utils.checkgenre
 import cd.projetthealthcare.com.databinding.ActivityPatienRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -23,10 +24,8 @@ class PatienRegisterActivity : AppCompatActivity() {
     lateinit var datenaissance:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityPatienRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         binding.registerBtn.setOnClickListener {
             if (checkFields()){
@@ -134,6 +133,7 @@ class PatienRegisterActivity : AppCompatActivity() {
             .document(patient.id)
             .set(patient)
             .addOnSuccessListener { documentReference ->
+                checkgenre(this,binding.genreChoice.selectedItem.toString())
                 Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.toString()}")
                 Utils.savename(this,patient)
                 Utils.newIntentFinish(this, MainActivity::class.java)
@@ -143,4 +143,5 @@ class PatienRegisterActivity : AppCompatActivity() {
                 Log.w("TAG", "Error adding document", e)
             }
     }
+
 }

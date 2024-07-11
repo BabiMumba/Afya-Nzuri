@@ -2,6 +2,7 @@ package cd.projetthealthcare.com.Fragment
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import cd.bmduka.com.Utils.DATA
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.Utils.Utils.iniprofile
 import cd.projetthealthcare.com.View.EditProfileActivity
 import cd.projetthealthcare.com.View.OnboardActivity
 import cd.projetthealthcare.com.databinding.FragmentSettingBinding
@@ -32,6 +34,19 @@ class SettingFragment : Fragment() {
 
         binding.logout.setOnClickListener {
             logout()
+        }
+        iniprofile(requireActivity(),binding.profileImv)
+        binding.condition.setOnClickListener {
+            val lien = "https://sites.google.com/view/afyanzuri-conditions/accueil"
+            OpenSite(lien)
+        }
+        binding.politique.setOnClickListener {
+            val lien = "https://sites.google.com/view/afyanzuri-politic/accueil"
+            OpenSite(lien)
+        }
+        binding.abouteUs.setOnClickListener {
+            val lien = "https://sites.google.com/view/afyanzuri-about/accueil"
+            OpenSite(lien)
         }
         return binding.root
     }
@@ -58,5 +73,11 @@ class SettingFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         GetName()
+    }
+    fun OpenSite(lien_site:String){
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = android.net.Uri.parse(lien_site)
+        startActivity(intent)
+
     }
 }

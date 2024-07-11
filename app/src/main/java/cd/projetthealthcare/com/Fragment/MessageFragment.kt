@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import cd.projetthealthcare.com.Adapter.ItemChatAdapter
 import cd.projetthealthcare.com.Model.ItemChat
 import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.Utils.chatListPath
+import cd.projetthealthcare.com.View.DoctoListActivity
 import cd.projetthealthcare.com.ViewModel.MainViewModel
 import cd.projetthealthcare.com.databinding.FragmentMessageBinding
 import com.google.firebase.database.DataSnapshot
@@ -28,6 +30,9 @@ class MessageFragment : Fragment() {
         binding = FragmentMessageBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
         iniTMessage()
+        binding.fab.setOnClickListener {
+            Utils.newIntent(requireActivity(), DoctoListActivity::class.java)
+        }
         return binding.root
     }
     fun iniTMessage(){

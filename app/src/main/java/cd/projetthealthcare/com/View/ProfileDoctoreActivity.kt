@@ -13,6 +13,8 @@ import cd.projetthealthcare.com.Utils.RENDEVOUS
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.databinding.ActivityProfileBinding
 import cd.projetthealthcare.com.databinding.RendevousComponeBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -46,13 +48,25 @@ class ProfileDoctoreActivity : AppCompatActivity() {
             if (it.exists()){
                 inivisi(false)
                 val medecin = it.toObject(Medecin::class.java)
-                binding.nameDoctor.text = medecin!!.nom
+                binding.nameDoctor.text = "${medecin!!.nom} ${medecin.prenom}"
                 binding.specialiteDoc.text = medecin.specialite
                 binding.hoptitalDoc.text = medecin.hopital
                 binding.langueDoc.text = "Langue: "+medecin.langue
-                binding.experianceDoc.text = "Experiance: "+medecin.experiance
+                binding.experianceDoc.text = "Experiance: "+medecin.experiance+" ans"
                 binding.phoneDoc.text = "+243"+medecin.telephone
                 binding.descriptionDoctor.text = medecin.description
+                val genre = medecin.genre
+                if (genre == "Femme") {
+                    Glide.with(this)
+                        .load(R.drawable.docteur)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(binding.profilDoctor)
+                } else {
+                    Glide.with(this)
+                        .load(R.drawable.ava_doctore)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(binding.profilDoctor)
+                }
             }else{
                 inivisi(false)
                 Utils.showToast(this,"Docteur non trouvé")
@@ -106,8 +120,8 @@ class ProfileDoctoreActivity : AppCompatActivity() {
             "id" to id,
             "date" to date,
             "heure" to heure,
-            "docteur" to "Dr. "+binding.nameDoctor.text.toString(),
-            "specialite" to binding.categorie.text.toString(),
+            "docteur" to binding.nameDoctor.text.toString(),
+            "specialite" to binding.specialiteDoc.text.toString(),
             "image" to "",
             "status" to "0",
             "hopital" to binding.hoptitalDoc.text.toString(),

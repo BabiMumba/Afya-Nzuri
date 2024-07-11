@@ -19,8 +19,9 @@ class DoctoreAdapter(val liste:ArrayList<Medecin>): RecyclerView.Adapter<Doctore
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.dct_name)
         val specialiteTextView: TextView = itemView.findViewById(R.id.dct_domaine)
-       // val hopitalTextView: TextView = itemView.findViewById(R.id.hopital_docteur)
-       // val imageView: ImageView = itemView.findViewById(R.id.image_docteur)
+        val hopitalTextView: TextView = itemView.findViewById(R.id.hopital)
+        val experiance: TextView = itemView.findViewById(R.id.dct_experience)
+        val imageView: ImageView = itemView.findViewById(R.id.dct_image)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -35,24 +36,30 @@ class DoctoreAdapter(val liste:ArrayList<Medecin>): RecyclerView.Adapter<Doctore
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()
-        holder.nameTextView.text = currentUser.nom
+        holder.nameTextView.text = "Dr ${currentUser.nom} ${currentUser.prenom}"
         holder.specialiteTextView.text = currentUser.specialite
-      //  holder.hopitalTextView.text = currentUser.hopital
+        holder.hopitalTextView.text = currentUser.hopital
+        holder.experiance.text = "${currentUser.experiance} ans d'expérience"
         holder.itemView.setOnClickListener {
-            //passer les données à l'activité suivante
             val intent = Intent(holder.itemView.context, ProfileDoctoreActivity::class.java)
             intent.putExtra("id", currentUser.id)
             holder.itemView.context.startActivity(intent)
         }
+        val genre = currentUser.genre
+        if (genre == "Femme") {
+            Glide.with(context)
+                .load(R.drawable.docteur)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(circularProgressDrawable)
+                .into(holder.imageView)
+        } else {
+            Glide.with(context)
+                .load(R.drawable.ava_doctore)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(circularProgressDrawable)
+                .into(holder.imageView)
+        }
 
-        /*Glide
-            .with(holder.itemView.context)
-            .load(currentUser.image)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            //.apply(RequestOptions.overrideOf(300,600))
-            .centerInside()
-            .placeholder(circularProgressDrawable)
-            .into(holder.imageView)*/
     }
 
     override fun getItemCount(): Int {

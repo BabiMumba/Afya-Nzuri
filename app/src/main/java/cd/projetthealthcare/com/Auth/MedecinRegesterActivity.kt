@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import cd.projetthealthcare.com.Model.Medecin
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.Utils.Utils.checkgenre
 import cd.projetthealthcare.com.View.RegDoctNextActivity
 import cd.projetthealthcare.com.databinding.MedecinRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -61,6 +62,7 @@ class MedecinRegesterActivity : AppCompatActivity() {
             .set(medecin)
             .addOnSuccessListener { documentReference ->
                 Log.d("TAG", "DocumentSnapshot added with ID: $documentReference")
+                checkgenre(this,binding.genreChoice.selectedItem.toString())
                 Utils.savenameDoctore(this,medecin)
                 Utils.newIntentFinish(this, RegDoctNextActivity::class.java)
                 binding.loader.loaderFrameLayout.visibility = View.GONE

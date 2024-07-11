@@ -13,6 +13,7 @@ import cd.projetthealthcare.com.Model.Medecin
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.Utils.Utils.checkgenre
 import cd.projetthealthcare.com.databinding.ActivityMedecinLoginBinding
 import cd.projetthealthcare.com.databinding.ActivityPatientLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -51,7 +52,8 @@ class MedecinLoginActivity : AppCompatActivity() {
                 if (user.exists()) {
                      FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener {it->
                           if (it.isSuccessful) {
-                              Utils.savenameDoctore(this, medecin!!)
+                              checkgenre(this,medecin!!.genre)
+                              Utils.savenameDoctore(this, medecin)
                               Utils.saveDoctor(this, true)
                             Utils.newIntentFinish(this, MainActivity::class.java)
                             Utils.isloading(binding.loginBtn,binding.loader,false)

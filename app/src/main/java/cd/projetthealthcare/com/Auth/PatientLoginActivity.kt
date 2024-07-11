@@ -13,6 +13,7 @@ import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.PATIANT
 import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.Utils.Utils.checkgenre
 import cd.projetthealthcare.com.databinding.ActivityPatientLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -49,7 +50,8 @@ class PatientLoginActivity : AppCompatActivity() {
                     val patient = it.toObject(Patient::class.java)
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            Utils.savename(this, patient!!)
+                            checkgenre(this,patient!!.genre)
+                            Utils.savename(this, patient)
                             Utils.newIntentFinish(this, MainActivity::class.java)
                             Utils.isloading(binding.loginBtn,binding.loader,false)
                         } else {

@@ -40,6 +40,9 @@
         android:theme="@style/Theme.Home"
         tools:targetApi="31">
         <activity
+            android:name=".View.DoctoListActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.FilterPageActivity"
             android:exported="false" />
         <activity

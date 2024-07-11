@@ -21,6 +21,7 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
         val docteur = itemView.findViewById<TextView>(R.id.dct_name)
         val specialite = itemView.findViewById<TextView>(R.id.dct_domaine)
         val status = itemView.findViewById<TextView>(R.id.dct_status)
+        val hopital = itemView.findViewById<TextView>(R.id.txtv_hopital)
         val btn_annuler = itemView.findViewById<MaterialButton>(R.id.dct_cancel)
         val modifier = itemView.findViewById<MaterialButton>(R.id.dct_edit)
     }
@@ -34,8 +35,9 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
         val item = liste[position]
         holder.date.text = item.date
         holder.heure.text = item.heure
-        holder.docteur.text = item.docteur
+        holder.docteur.text = "Dr ${item.docteur}"
         holder.specialite.text = item.specialite
+        holder.hopital.text = item.hopital
         val status = when(item.status){
             "0" -> "En attente"
             "1" -> "Accepté"
@@ -67,8 +69,6 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
         holder.modifier.setOnClickListener {
             //modifier le rendez-vous
         }
-        //rafraichir la liste
-        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

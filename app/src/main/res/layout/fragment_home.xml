@@ -266,21 +266,32 @@
                 </RelativeLayout>
 
             </com.google.android.material.card.MaterialCardView>
-            <LinearLayout
-                android:layout_marginTop="@dimen/_10sdp"
+            <RelativeLayout
+                android:id="@+id/show_more"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 >
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nos Docteurs"
                     android:textColor="@color/primary_text"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_12sdp"
                     android:fontFamily="@font/poppins_bold"
                     />
-            </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Voir plus"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/_13sdp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_alignParentEnd="true"
+
+                    />
+            </RelativeLayout>
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

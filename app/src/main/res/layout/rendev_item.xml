@@ -21,6 +21,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/dct_image"
                 android:layout_centerVertical="true"
                 >
                 <TextView
@@ -32,15 +34,53 @@
                     android:id="@+id/dct_name"
                     android:fontFamily="@font/poppins_semibold"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cardiologue"
-                    android:textSize="@dimen/_10sdp"
-                    android:textColor="@color/primary_text"
-                    android:id="@+id/dct_domaine"
-                    android:fontFamily="@font/poppins_regular"
-                    />
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Specialite: "
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/primary_text"
+                        android:fontFamily="@font/poppins_semibold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cardiologue"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/primary_text"
+                        android:id="@+id/dct_domaine"
+                        android:fontFamily="@font/poppins_regular"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hopital: "
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/primary_text"
+                        android:fontFamily="@font/poppins_semibold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="sen"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/primary_text"
+                        android:id="@+id/txtv_hopital"
+                        android:fontFamily="@font/poppins_regular"
+                        />
+                </LinearLayout>
+
             </LinearLayout>
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_alignParentEnd="true"
