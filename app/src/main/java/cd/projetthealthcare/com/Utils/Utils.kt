@@ -1,5 +1,7 @@
 package cd.projetthealthcare.com.Utils
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.util.Patterns
@@ -12,7 +14,9 @@ import cd.projetthealthcare.com.Model.Hopital
 import cd.projetthealthcare.com.Model.Medecin
 import cd.projetthealthcare.com.Model.Patient
 import cd.projetthealthcare.com.R
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.google.firebase.firestore.FirebaseFirestore
 import java.security.Timestamp
 
 
@@ -137,6 +141,39 @@ object Utils {
         return liste_hop
     }
 
+
+    fun datePicker(context: Context,dates:MaterialButton){
+        val date = java.sql.Timestamp(System.currentTimeMillis()).toString().split(" ")[0].split("-")
+        val year = date[0].toInt()
+        val month = date[1].toInt()
+        val day = date[2].toInt()
+        val datePickerDialog = DatePickerDialog(context, { view, year, monthOfYear, dayOfMonth ->
+            val month = monthOfYear + 1
+            val date = "$dayOfMonth/$month/$year"
+            dates.text = date
+        }, year, month, day)
+        datePickerDialog.show()
+    }
+
+    fun timePicker(context: Context,timechose:MaterialButton){
+        val timePickerDialog = TimePickerDialog(context, { view, hourOfDay, minute ->
+            val time = "${hourOfDay}H$minute"
+            timechose.text = time
+        }, 24, 0, false)//sa veut dire que le temps est en 24h
+        timePickerDialog.show()
+    }
+
+    fun AnnulerRendev(id:String,context: Context){
+        //supprimer le rendez-vous
+        val db = FirebaseFirestore.getInstance()
+        db.collection(RENDEVOUS).document(id).delete()
+            .addOnSuccessListener {
+                showToast(context,"Rendez-vous annulé")
+            }
+            .addOnFailureListener {
+                showToast(context,"Erreur lors de l'annulation du rendez-vous")
+            }
+    }
 
 
 }

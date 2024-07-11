@@ -1,14 +1,21 @@
 package cd.projetthealthcare.com.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cd.projetthealthcare.com.Adapter.Rendev_ad
+import cd.projetthealthcare.com.Model.Medecin
 import cd.projetthealthcare.com.Model.mdl_rendev
 import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.Utils.MEDECIN
+import cd.projetthealthcare.com.Utils.RENDEVOUS
+import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.databinding.FragmentRendeVBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RendeVFragment : Fragment() {
     lateinit var binding: FragmentRendeVBinding
@@ -24,15 +31,28 @@ class RendeVFragment : Fragment() {
     }
 
     fun inirendev(){
-        val liste_rend = ArrayList<mdl_rendev>()
-        liste_rend.add(mdl_rendev(1,"12/12/2021","12:00","Dr. MUKENDI","Cardiologue","image","En attente"))
-        liste_rend.add(mdl_rendev(2,"12/10/2021","13:00","Dr. Pierre","Dentiste","image","En attente"))
-        //docta alber
-        liste_rend.add(mdl_rendev(3,"12/10/2021","13:00","Dr. alber","Dentiste","image","En attente"))
-        //dct sarah
-        liste_rend.add(mdl_rendev(4,"12/10/2021","13:00","Dr. sarah","Dentiste","image","En attente"))
-        val adapter = Rendev_ad(liste_rend)
-        binding.rendevRecycler.adapter = adapter
+     //get data from firestore firebase
+        val liste_docteur = ArrayList<mdl_rendev>()
+        val db = FirebaseFirestore.getInstance()
+        val mail = FirebaseAuth.getInstance().currentUser!!.email
+        val myiuid= Utils.getUID(mail!!)
+        db.collection(RENDEVOUS)
+            .get()
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    for (doc in it.result!!){
+                        val rendev = doc.toObject(mdl_rendev::class.java)
+                        if (rendev.id_patient == myiuid){
+                            liste_docteur.add(rendev)
+                        }
+                    }
+                    val adapter = Rendev_ad(liste_docteur)
+                    binding.rendevRecycler.adapter = adapter
+                }else{
+                   // binding.loader.visibility = View.GONE
+                    Log.d("TAG", "Error getting documents: ", it.exception)
+                }
+            }
     }
 
 }

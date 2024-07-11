@@ -13,15 +13,16 @@
   <include
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    layout="@layout/layout_circular_loader"
-      android:id="@+id/loader_layout"
-      android:visibility="gone"
+    layout="@layout/loade_pro_layout"
+    android:id="@+id/loader_layout"
+
     />
   <androidx.core.widget.NestedScrollView
       android:layout_above="@id/rend_layout"
       android:layout_below="@id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:id="@+id/nested_scroll_view"
       >
 
     <LinearLayout
@@ -62,18 +63,64 @@
                 android:src="@drawable/baseline_check_circle_24"
                 app:tint="@color/primary" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                    android:text="Dr"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_13ssp"
+                  android:layout_marginStart="@dimen/_2sdp"
+                    android:textStyle="bold" />
             <TextView
                 android:id="@+id/name_doctor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
-                android:text="Dr Babi Mumba"
+                android:text=""
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/_13ssp"
                 android:textStyle="bold" />
+            </LinearLayout>
 
           </LinearLayout>
 
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/_2sdp"
+              android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="20sp"
+                android:src="@drawable/baseline_specialite_24"
+                app:tint="@color/secondary_text" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:text="Specialite:"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/specialite_doc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:text="Dentiste"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="normal" />
+
+          </LinearLayout>
           <LinearLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -87,11 +134,19 @@
                 app:tint="@color/secondary_text" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:text="Hopital:"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="normal" />
+            <TextView
                 android:id="@+id/hoptital_doc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
-                android:text="Hopital: Gecamine sud"
+                android:text="Gecamine sud"
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/_13ssp"
                 android:textStyle="normal" />
@@ -211,6 +266,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="horizontal">
           <ImageView
               android:layout_gravity="center"

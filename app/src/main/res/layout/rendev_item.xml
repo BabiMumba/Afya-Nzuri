@@ -47,7 +47,7 @@
                 android:layout_centerVertical="true"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:src="@drawable/steve"
+                android:src="@drawable/ava_doctore"
                 android:id="@+id/dct_image"
                 />
         </RelativeLayout>
