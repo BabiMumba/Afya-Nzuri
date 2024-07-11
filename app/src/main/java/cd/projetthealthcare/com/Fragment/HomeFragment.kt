@@ -16,6 +16,7 @@ import cd.projetthealthcare.com.View.FicheActivity
 import cd.projetthealthcare.com.View.NotifcationActivity
 import cd.projetthealthcare.com.View.PrescriptionActivity
 import cd.projetthealthcare.com.databinding.FragmentHomeBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import specialite
 
@@ -67,15 +68,18 @@ class HomeFragment : Fragment() {
         binding.loader.visibility = View.VISIBLE
         val liste_docteur = ArrayList<Medecin>()
         val db = FirebaseFirestore.getInstance()
+        val email = FirebaseAuth.getInstance().currentUser!!.email.toString()
+        val myid = Utils.getUID(email)
         db.collection(MEDECIN)
-            .limit(3)
             .get()
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     liste_docteur.clear()
                     for (document in it.result!!) {
                         val doctore = document.toObject(Medecin::class.java)
-                        liste_docteur.add(doctore)
+                        if (doctore.id != myid) {
+                            liste_docteur.add(doctore)
+                        }
                         Log.d("TAG", "${document.id} => ${document.data}")
                     }
                     if (liste_docteur.isNotEmpty()) {

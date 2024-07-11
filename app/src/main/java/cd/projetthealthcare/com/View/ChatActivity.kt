@@ -1,6 +1,9 @@
 package cd.projetthealthcare.com.View
 
+import android.content.Context
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -8,57 +11,68 @@ import androidx.core.view.WindowInsetsCompat
 import cd.babi.chatal.models.Message
 import cd.projetthealthcare.com.Adapter.MessageAdapter
 import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.Utils.Utils
+import cd.projetthealthcare.com.ViewModel.MainViewModel
 import cd.projetthealthcare.com.databinding.ActivityChatBinding
 
 class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
-    private val messages = ArrayList<Message>()
-    private val messageAdapter by lazy { MessageAdapter(messages) }
+    var liste_message = ArrayList<Message>()
+    private val viewModel = MainViewModel()
+    lateinit var myadapter: MessageAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        myadapter = MessageAdapter(liste_message)
+        binding.recycleMessage.adapter = myadapter
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        binding.recycleMessage.adapter = messageAdapter
-        initChat()
-
+        val id_receiver = intent.getStringExtra("id_sender").toString()
+        InitMessages(id_receiver)
+        Toast.makeText(this, "$id_receiver", Toast.LENGTH_SHORT).show()
+        
         binding.btnSend.setOnClickListener {
-            val message = binding.message.text.toString().trim()
+            val message = binding.message.text.toString()
             if (message.isNotEmpty()) {
-                addMessage(Message(message, false))
-                binding.message.text.clear()
+                val messages = Message(
+                    viewModel.myUid(),
+                    id_receiver,
+                    message,
+                )
+                viewModel.sendMessage(messages)
+                binding.message.setText("")
+                val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputManager.hideSoftInputFromWindow(binding.message.windowToken, 0)
+            } else {
+                Utils.showToast(this, "Votre message ne peut pas être vide.")
             }
+
         }
         binding.back.setOnClickListener {
             onBackPressed()
         }
     }
 
-    private fun initChat() {
-        addMessage(Message("bonjour docteur steve", false))
-        addMessage(Message("bonjour \ncomment puis-je vous aider", true))
-        addMessage(Message("je suis malade", false))
-        addMessage(Message("tu peux me d'ecrire tes symptomes", true))
-        addMessage(Message("j'ai mal a la tete", false))
-        addMessage(Message("tu as de la fievre ?", true))
-        addMessage(Message("oui", false))
-        addMessage(Message("tu as pris des medicaments ?", true))
-        addMessage(Message("non", false))
-        addMessage(Message("tu peux prendre du paracetamol", true))
-        addMessage(Message("d'accord", false))
+    private fun InitMessages(id_receiver: String) {
+        viewModel.fetchMessage( id_receiver)
+        viewModel.messages.observe(this) { messageList ->
+            liste_message.clear()
+            liste_message.addAll(messageList)
+            myadapter.notifyDataSetChanged()
+            binding.recycleMessage.scrollToPosition(liste_message.size - 1)
+        }
+
+       /* viewModel.GetDataUser(id_receiver) {user->
+            if (user != null){
+                binding.userName.text = user.name
+            }else{
+                binding.userName.text = "Inconnu"
+            }
+
+        }*/
     }
 
-    private fun addMessage(message: Message) {
-        messages.add(message)
-        messageAdapter.notifyItemInserted(messages.size - 1)
-        binding.recycleMessage.scrollToPosition(messages.size - 1)
-    }
+
 }

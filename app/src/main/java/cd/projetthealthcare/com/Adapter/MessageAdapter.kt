@@ -4,11 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cd.babi.chatal.models.Message
+import cd.projetthealthcare.com.ViewModel.MainViewModel
 import cd.projetthealthcare.com.databinding.ReceivedMessageItemBinding
 import cd.projetthealthcare.com.databinding.SentMessageItemBinding
+import com.bumptech.glide.Glide
 
 class MessageAdapter(private var liste_message:ArrayList<Message>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    val viewModel = MainViewModel()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         return when (viewType){
@@ -50,31 +53,26 @@ class MessageAdapter(private var liste_message:ArrayList<Message>):RecyclerView.
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (liste_message[position].isReceived){
-            0
-        }else 1
+        return if (liste_message[position].senderId==viewModel.myUid()){
+            1
+        }else 0
     }
     inner class ViewHolderReceived(private val binding: ReceivedMessageItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Message) {
-            binding.tvMessage.text = item.message
+            //si le texte est vide
+            if (item.message.isNotEmpty()){
+                binding.tvMessage.text = item.message
+            }else{
+                binding.tvMessage.visibility = ViewGroup.GONE
+            }
+
         }
     }
     inner class ViewHolderSent(private val binding: SentMessageItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Message) {
             binding.tvMessage.text = item.message
-            /*
-            if(position==dataList.size-1){
-                if(item.seen){
-                    binding.seen.visibility = View.VISIBLE
-                }
-                else{
-                    binding.seen.text = itemView.context.getString(R.string.sent)
-                    binding.seen.visibility = View.VISIBLE
-                }
-            }
-            */
         }
     }
 

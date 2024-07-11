@@ -30,10 +30,9 @@ object Utils {
         context.startActivity(Intent(context, activity))
     }
     //new intent with extra
-    fun newIntentWithExtra(context: Context, activity: Class<*>, key: String, value: String,id_boutique:String,value_boutique:String) {
+    fun newIntentWithExtra(context: Context, activity: Class<*>, key: String, value: String) {
         val intent = Intent(context, activity)
         intent.putExtra(key, value)
-        intent.putExtra(id_boutique,value_boutique)
         context.startActivity(intent)
     }
     //new intent finish

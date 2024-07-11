@@ -30,7 +30,7 @@ class ProfileDoctoreActivity : AppCompatActivity() {
             onBackPressed()
         }
         binding.contactBtn.setOnClickListener {
-            Utils.newIntent(this,ChatActivity::class.java)
+            Utils.newIntentWithExtra(this,ChatActivity::class.java,"id_sender",intent.getStringExtra("id")!!)
         }
         getDataDocto()
         binding.rendezBtn.setOnClickListener {

@@ -7,29 +7,51 @@ import cd.projetthealthcare.com.Model.ItemChat
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.View.ChatActivity
+import cd.projetthealthcare.com.ViewModel.MainViewModel
 import cd.projetthealthcare.com.databinding.ItemChatBinding
 
 class ItemChatAdapter(val liste_message:ArrayList<ItemChat>):RecyclerView.Adapter<ItemChatAdapter.ViewHolder>() {
 
+    val viewModel = MainViewModel()
     inner class ViewHolder(val binding:ItemChatBinding):RecyclerView.ViewHolder(binding.root){
 
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemChatAdapter.ViewHolder {
         val binding = ItemChatBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemChatAdapter.ViewHolder, position: Int) {
         val item = liste_message[position]
-       /* if (position%2==0){
-            holder.itemView.animation = android.view.animation.AnimationUtils.loadAnimation(holder.itemView.context, R.anim.fisrt_item)
+
+        val contexte = holder.itemView.context
+      /*  if (item.senderId == viewModel.myUid()) {
+            viewModel.GetDataUser(item.receiverId) { user->
+                if (user != null){
+                    holder.binding.userName.text = user.name
+                }else{
+                    holder.binding.userName.text = "Inconnu"
+
+                }
+            }
         }else{
-            holder.itemView.animation = android.view.animation.AnimationUtils.loadAnimation(holder.itemView.context, R.anim.second_iten)
+            viewModel.GetDataUser(item.senderId) { user->
+                if (user != null){
+                    holder.binding.userName.text = user.name
+                }else{
+                    holder.binding.userName.text = "Inconnu"
+
+                }
+            }
         }*/
-        holder.binding.userName.text = item.name
         holder.binding.lastMessage.text = item.lastMessage
         holder.itemView.setOnClickListener {
-            Utils.newIntent(holder.itemView.context,ChatActivity::class.java)
+            val receiver = if (item.senderId == viewModel.myUid()){
+                item.receiverId
+            }else{
+                item.senderId
+            }
+            Utils.newIntentWithExtra(contexte,ChatActivity::class.java,"id_sender",receiver)
         }
     }
 
