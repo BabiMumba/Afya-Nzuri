@@ -93,34 +93,38 @@ class PatienRegisterActivity : AppCompatActivity() {
             binding.edtName.error = "Veuillez entrer votre nom"
             false
         }else if (binding.edtPrenom.text.toString().isEmpty()) {
-            Toast.makeText(this, "Votre prenom", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre prenom")
             false
         }else if (binding.edtPhone.text.toString().length!=9) {
-            Toast.makeText(this, "Votre numéro doit comporter 9 chiffres", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre numéro Téléphone doit contenir 9 chiffres")
             false
         }else if (binding.edtPhone.text.toString().isEmpty()) {
-            Toast.makeText(this, "Votre numéro Téléphone ou texto.", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre numéro Téléphone")
             false
         }else if (binding.adresse.text.toString().isEmpty()) {
-            Toast.makeText(this, "Votre Adresse", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre adresse")
             false
         }else if (binding.genreChoice.selectedItem.toString() == "Genre"){
-            Toast.makeText(this, "Votre Genre", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre genre")
             false
         }else if (binding.dateNaissanceBtn.text.toString()=="Date de naissance"){
-            Toast.makeText(this, "Votre date de naissance", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre date de naissance")
             false
         }else if (binding.edtEmail.text.toString().isEmpty()){
-            Toast.makeText(this, "Votre mail", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre mail")
             false
         }else if (!Utils.isValidEmail(binding.edtEmail.text.toString())){
-            Toast.makeText(this, "Votre mail n'est pas valide", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre mail n'est pas valide")
+            false
+        }
+        else if (binding.edtEmail.text.toString().length<4){
+            Utils.showToast(this, "Votre mail doit contenir au moins 4 caractères")
             false
         }else if (binding.edtPassword.text.toString().isEmpty()){
-            Toast.makeText(this, "Votre mot de passe", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre mot de passe")
             false
         }else if (binding.edtPassword.text.toString().length<6){
-            Toast.makeText(this, "Votre mot de passe doit comporter au moins 6 caractères", Toast.LENGTH_SHORT).show()
+            Utils.showToast(this, "Votre mot de passe doit contenir au moins 6 caractères")
             false
         }else
             true

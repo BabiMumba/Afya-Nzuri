@@ -56,8 +56,15 @@ class MessageFragment : Fragment() {
                         liste_message.add(itemChat)
                         Log.d("message",itemChat.toString())
                     }
-                    val adapter = ItemChatAdapter(liste_message)
-                    binding.recyclerChat.adapter = adapter
+                    if (liste_message.size > 0){
+                        val adapter = ItemChatAdapter(liste_message)
+                        binding.recyclerChat.adapter = adapter
+                    }else{
+                        Log.d("message","vide")
+                        binding.recyclerChat.visibility = View.GONE
+                        binding.emptyChat.visibility = View.VISIBLE
+
+                    }
                 }
                 override fun onCancelled(error: DatabaseError) {
                     Log.d("error",error.message)

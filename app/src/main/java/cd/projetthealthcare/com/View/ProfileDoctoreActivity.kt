@@ -1,6 +1,8 @@
 package cd.projetthealthcare.com.View
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,7 @@ import java.util.Date
 
 class ProfileDoctoreActivity : AppCompatActivity() {
     lateinit var binding: ActivityProfileBinding
+    var gr = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -31,10 +34,19 @@ class ProfileDoctoreActivity : AppCompatActivity() {
         binding.toolbar.backBtn.setOnClickListener {
             onBackPressed()
         }
-        binding.contactBtn.setOnClickListener {
-            Utils.newIntentWithExtra(this,ChatActivity::class.java,"id_sender",intent.getStringExtra("id")!!)
-        }
+        val id = intent.getStringExtra("id")
+        Log.d("TAG", "onCreate: $id")
         getDataDocto()
+        binding.contactBtn.setOnClickListener {
+           // Utils.newIntentWithExtra(this,ChatActivity::class.java,"id_sender",intent.getStringExtra("id")!!)
+            val intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("id_sender", id)
+            intent.putExtra("isdoct", true)
+            intent.putExtra("name", binding.nameDoctor.text.toString())
+            intent.putExtra("imadoctore",Utils.IsDoctor(this))
+            intent.putExtra("genre",gr)
+            startActivity(intent)
+        }
         binding.rendezBtn.setOnClickListener {
             appointement()
         }
@@ -56,6 +68,7 @@ class ProfileDoctoreActivity : AppCompatActivity() {
                 binding.phoneDoc.text = "+243"+medecin.telephone
                 binding.descriptionDoctor.text = medecin.description
                 val genre = medecin.genre
+                gr = genre
                 if (genre == "Femme") {
                     Glide.with(this)
                         .load(R.drawable.docteur)

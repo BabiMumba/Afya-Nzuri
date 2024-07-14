@@ -44,7 +44,6 @@ class DoctoListActivity : AppCompatActivity() {
                     }
                     if (liste_docteur.isNotEmpty()) {
                         filterDocteur.items = liste_docteur
-
                         binding.doctoreRecy.adapter = filterDocteur
                         binding.doctoreRecy.setHasFixedSize(true)
                     } else {

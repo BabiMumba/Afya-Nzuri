@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.ImageView
@@ -25,6 +26,7 @@ import java.security.Timestamp
 object Utils {
     //show toast
     fun showToast(context: Context, message: String) {
+        Log.d("message", message)
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
     //new intent

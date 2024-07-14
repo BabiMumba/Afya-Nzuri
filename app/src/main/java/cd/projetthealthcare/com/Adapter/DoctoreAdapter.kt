@@ -43,6 +43,7 @@ class DoctoreAdapter(val liste:ArrayList<Medecin>): RecyclerView.Adapter<Doctore
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, ProfileDoctoreActivity::class.java)
             intent.putExtra("id", currentUser.id)
+            //intent.putExtra("genre", currentUser.genre)
             holder.itemView.context.startActivity(intent)
         }
         val genre = currentUser.genre

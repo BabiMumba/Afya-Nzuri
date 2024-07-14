@@ -46,6 +46,29 @@
         android:backgroundTint="@color/primary"
         android:elevation="@dimen/_5sdp"
         />
+    <LinearLayout
+        android:id="@+id/empty_chat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/emptychat"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vous n'avez pas de message"
+            android:textSize="@dimen/_12sdp"
+            android:layout_gravity="center"
+            android:textColor="@color/secondary_text"
+            />
+    </LinearLayout>
 
 
 

@@ -1,5 +1,6 @@
 package cd.projetthealthcare.com.Adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -23,27 +24,26 @@ class ItemChatAdapter(val liste_message:ArrayList<ItemChat>):RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: ItemChatAdapter.ViewHolder, position: Int) {
         val item = liste_message[position]
-
         val contexte = holder.itemView.context
-      /*  if (item.senderId == viewModel.myUid()) {
-            viewModel.GetDataUser(item.receiverId) { user->
-                if (user != null){
-                    holder.binding.userName.text = user.name
-                }else{
-                    holder.binding.userName.text = "Inconnu"
 
-                }
-            }
-        }else{
-            viewModel.GetDataUser(item.senderId) { user->
-                if (user != null){
-                    holder.binding.userName.text = user.name
-                }else{
-                    holder.binding.userName.text = "Inconnu"
+            holder.binding.userName.text = item.name
 
+
+        Log.d("TAG", "onBindViewHolder: ${item.isDoctor}")
+           if (item.isDoctor) {
+               if (item.genre == "Femme") {
+                   holder.binding.imageProfile.setImageResource(R.drawable.docteur)
+               } else {
+                   holder.binding.imageProfile.setImageResource(R.drawable.ava_doctore)
+               }
+           }else{
+                if (item.genre == "Femme"){
+                     holder.binding.imageProfile.setImageResource(R.drawable.femme)
+                }else{
+                     holder.binding.imageProfile.setImageResource(R.drawable.avatar_user)
                 }
-            }
-        }*/
+           }
+
         holder.binding.lastMessage.text = item.lastMessage
         holder.itemView.setOnClickListener {
             val receiver = if (item.senderId == viewModel.myUid()){

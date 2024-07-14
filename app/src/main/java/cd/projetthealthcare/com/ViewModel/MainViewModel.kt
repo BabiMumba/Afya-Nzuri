@@ -46,6 +46,9 @@ class MainViewModel():ViewModel() {
                         "timestamp" to message.time,
                         "senderId" to message.senderId,
                         "receiverId" to message.receiverId,
+                        "isDoctor" to message.statedoctoe.sender,
+                        "name" to message.user.receivername,
+                        "genre" to message.user.genre
                     ))
                 mydb.getReference(chatListPath).child(message.receiverId)
                     .child(message.senderId).setValue(mapOf(
@@ -54,6 +57,9 @@ class MainViewModel():ViewModel() {
                         "timestamp" to message.time,
                         "senderId" to message.senderId,
                         "receiverId" to message.receiverId,
+                        "isDoctor" to message.statedoctoe.receiver,
+                        "name" to message.user.sendername,
+                        "genre" to message.user.genre
                     ))
             }
     }
