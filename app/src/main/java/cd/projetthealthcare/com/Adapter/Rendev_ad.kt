@@ -2,16 +2,19 @@ package cd.projetthealthcare.com.Adapter
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cd.projetthealthcare.com.Model.mdl_rendev
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.Utils
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.auth.FirebaseAuth
 
 class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_ad.ViewHolder>() {
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -23,7 +26,12 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
         val status = itemView.findViewById<TextView>(R.id.dct_status)
         val hopital = itemView.findViewById<TextView>(R.id.txtv_hopital)
         val btn_annuler = itemView.findViewById<MaterialButton>(R.id.dct_cancel)
+        val btn_refuser = itemView.findViewById<MaterialButton>(R.id.dct_refuse)
+        val btn_accepter = itemView.findViewById<MaterialButton>(R.id.dct_accept)
         val modifier = itemView.findViewById<MaterialButton>(R.id.dct_edit)
+        val lyt_specialite = itemView.findViewById<LinearLayout>(R.id.dct_specialite)
+        val lyt_action = itemView.findViewById<LinearLayout>(R.id.dct_action)
+        val lyt_patient= itemView.findViewById<LinearLayout>(R.id.dct_action_patient)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,9 +43,57 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
         val item = liste[position]
         holder.date.text = item.date
         holder.heure.text = item.heure
-        holder.docteur.text = "Dr ${item.docteur}"
-        holder.specialite.text = item.specialite
         holder.hopital.text = item.hopital
+        val mail = FirebaseAuth.getInstance().currentUser!!.email
+        val myiuid= Utils.getUID(mail!!)
+
+        Log.d("namedoct",item.medecin.mednom)
+        if (item.id_docteur==myiuid){
+            holder.docteur.text = item.patient.patientNom
+            if (item.patient.patientGenre=="Femme") {
+                holder.image.setImageResource(R.drawable.femme)
+            }else{
+                holder.image.setImageResource(R.drawable.avatar_user)
+            }
+            holder.lyt_patient.visibility = View.GONE
+            holder.lyt_action.visibility = View.VISIBLE
+            holder.btn_refuser.setOnClickListener {
+                //refuser le rendez-vous
+                val dialog = AlertDialog.Builder(holder.itemView.context)
+                dialog.setTitle("Refuser le rendez-vous")
+                dialog.setMessage("Voulez-vous vraiment refuser le rendez-vous?")
+                dialog.setPositiveButton("Oui"){_,_ ->
+                    //refuser le rendez-vous
+                    Utils.showToast(holder.itemView.context,"Rendez-vous refusé")
+                }
+                dialog.setNegativeButton("Non"){_,_ ->}
+                dialog.create().show()
+            }
+            holder.btn_accepter.setOnClickListener {
+                //accepter le rendez-vous
+                val dialog = AlertDialog.Builder(holder.itemView.context)
+                dialog.setTitle("Accepter le rendez-vous")
+                dialog.setMessage("Voulez-vous vraiment accepter le rendez-vous?")
+                dialog.setPositiveButton("Oui"){_,_ ->
+                    //accepter le rendez-vous
+                    Utils.showToast(holder.itemView.context,"Rendez-vous accepté")
+                }
+                dialog.setNegativeButton("Non"){_,_ ->}
+                dialog.create().show()
+            }
+
+        }else{
+            holder.docteur.text = item.medecin.mednom
+            holder.lyt_specialite.visibility = View.VISIBLE
+            holder.specialite.text = item.medecin.medspecialite
+            if (item.medecin.medgenre=="Femme") {
+                holder.image.setImageResource(R.drawable.docteur)
+            }else{
+                holder.image.setImageResource(R.drawable.ava_doctore)
+            }
+        }
+
+
         val status = when(item.status){
             "0" -> "En attente"
             "1" -> "Accepté"
@@ -69,6 +125,7 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
         holder.modifier.setOnClickListener {
             //modifier le rendez-vous
         }
+
     }
 
     override fun getItemCount(): Int {

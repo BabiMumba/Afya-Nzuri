@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import cd.projetthealthcare.com.Adapter.ItemChatAdapter
 import cd.projetthealthcare.com.Model.ItemChat
-import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.Utils.chatListPath
 import cd.projetthealthcare.com.View.DoctoListActivity
@@ -35,45 +34,38 @@ class MessageFragment : Fragment() {
         }
         return binding.root
     }
-    fun iniTMessage(){
+    fun iniTMessage() {
+        binding.progress.visibility = View.VISIBLE
         val liste_message = ArrayList<ItemChat>()
         FirebaseDatabase.getInstance().getReference(chatListPath).child(viewModel.myUid()).orderByChild("timestamp")
-            .addChildEventListener(object : ValueEventListener, com.google.firebase.database.ChildEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    for (snap in snapshot.children){
-                        val itemChat = snap.getValue(ItemChat::class.java)
-                        if (itemChat != null){
-                            liste_message.add(itemChat)
-                            Log.d("message",itemChat.toString())
+                    liste_message.clear()
+                    Log.d("TAG", "onDataChange: Snapshot children count = ${snapshot.childrenCount}")
+                    for (doc in snapshot.children) {
+                        val item = doc.getValue(ItemChat::class.java)
+                        if (item != null) {
+                            Log.d("TAG", "onDataChange: ItemChat - isDoctor = ${item.estDocteur}, genre = ${item.genre}")
+                            liste_message.add(item)
+                        } else {
+                            Log.e("TAG", "onDataChange: ItemChat object is null")
                         }
                     }
                     val adapter = ItemChatAdapter(liste_message)
-                    binding.recyclerChat.adapter = adapter
-                }
-                override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                    val itemChat = snapshot.getValue(ItemChat::class.java)
-                    if (itemChat != null){
-                        liste_message.add(itemChat)
-                        Log.d("message",itemChat.toString())
-                    }
-                    if (liste_message.size > 0){
-                        val adapter = ItemChatAdapter(liste_message)
+                    if (liste_message.size > 0) {
+                        binding.progress.visibility = View.GONE
+                        binding.emptyChat.visibility = View.GONE
                         binding.recyclerChat.adapter = adapter
-                    }else{
-                        Log.d("message","vide")
-                        binding.recyclerChat.visibility = View.GONE
+                    } else {
+                        binding.progress.visibility = View.GONE
                         binding.emptyChat.visibility = View.VISIBLE
-
                     }
                 }
+
                 override fun onCancelled(error: DatabaseError) {
-                    Log.d("error",error.message)
+                    Log.d("TAG", "onCancelled: ${error.message}")
                 }
-
-                override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {}
-                override fun onChildRemoved(snapshot: DataSnapshot) {}
-                override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {}
-
             })
     }
+
 }

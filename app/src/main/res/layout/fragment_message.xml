@@ -24,6 +24,14 @@
         android:contentInsetStartWithNavigation="0dp"
         android:contentInsetEnd="0dp"
         />
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminate="true"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"

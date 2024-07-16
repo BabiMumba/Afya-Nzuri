@@ -1,16 +1,11 @@
 package cd.projetthealthcare.com.View
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import cd.projetthealthcare.com.Model.Patient
-import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.Model.PatientMdl
 import cd.projetthealthcare.com.Utils.PATIANT
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.databinding.ActivityEditProfileBinding
-import com.bumptech.glide.util.Util
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -37,7 +32,7 @@ class EditProfileActivity : AppCompatActivity() {
         val user = db.collection(PATIANT).document(uid)
         user.get().addOnSuccessListener {
             if (it.exists()){
-                val patient = it.toObject(Patient::class.java)
+                val patient = it.toObject(PatientMdl::class.java)
                 binding.edtName.setText(patient?.nom)
                 binding.edtPrenom.setText(patient?.prenom)
                 binding.edtPhone.setText(patient?.telephone)
@@ -59,7 +54,7 @@ class EditProfileActivity : AppCompatActivity() {
             "adresse",binding.adresse.text.toString(),
             "poste_nom",binding.edtPostenom.text.toString()
         ).addOnSuccessListener {
-            val patient = Patient(
+            val patient = PatientMdl(
                 binding.adresse.text.toString(),
                 0,
                 mail,

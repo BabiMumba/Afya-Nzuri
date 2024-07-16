@@ -5,13 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import cd.projetthealthcare.com.MainActivity
-import cd.projetthealthcare.com.Model.Patient
-import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.Model.PatientMdl
 import cd.projetthealthcare.com.Utils.PATIANT
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.Utils.Utils.checkgenre
@@ -30,7 +26,7 @@ class PatienRegisterActivity : AppCompatActivity() {
         binding.registerBtn.setOnClickListener {
             if (checkFields()){
                 val uid = Utils.getUID(binding.edtEmail.text.toString())
-                val patient = Patient(
+                val patient = PatientMdl(
                     binding.adresse.text.toString(),
                     Utils.getAge(datenaissance),
                     binding.edtEmail.text.toString(),
@@ -69,7 +65,7 @@ class PatienRegisterActivity : AppCompatActivity() {
 
     }
 
-    fun registerbymail(patient: Patient,callback: (Boolean) -> Unit){
+    fun registerbymail(patient: PatientMdl, callback: (Boolean) -> Unit){
         //register patient by mail
         val auth = FirebaseAuth.getInstance()
         binding.loader.loaderFrameLayout.visibility = View.VISIBLE
@@ -130,7 +126,7 @@ class PatienRegisterActivity : AppCompatActivity() {
             true
 
     }
-    fun saveuser(patient: Patient){
+    fun saveuser(patient: PatientMdl){
         //save user in database
         val db = FirebaseFirestore.getInstance()
         db.collection(PATIANT)

@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.Model.MedecinMdl
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.View.ProfileDoctoreActivity
 import com.bumptech.glide.Glide
@@ -18,7 +18,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 
 class FilterDocteur : RecyclerView.Adapter<FilterDocteur.ViewHolder>(),Filterable{
-    var items:ArrayList<Medecin> = ArrayList()
+    var items:ArrayList<MedecinMdl> = ArrayList()
         set(value) {
             field = value
             medecinfilter = value
@@ -74,20 +74,20 @@ class FilterDocteur : RecyclerView.Adapter<FilterDocteur.ViewHolder>(),Filterabl
                     val resultlist = items.filter {
                         it.nom.lowercase().contains( charSearch.lowercase())
                     }
-                    resultlist as ArrayList<Medecin>
+                    resultlist as ArrayList<MedecinMdl>
                 }
                 val filterResults = FilterResults()
                 filterResults.values = medecinfilter
                 return filterResults
             }
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                medecinfilter = p1?.values as ArrayList<Medecin>
+                medecinfilter = p1?.values as ArrayList<MedecinMdl>
                 notifyDataSetChanged()
             }
 
         }
     }
-    private  var medecinfilter:ArrayList<Medecin> = ArrayList()
+    private  var medecinfilter:ArrayList<MedecinMdl> = ArrayList()
 
     inner  class ViewHolder(itemview:View):RecyclerView.ViewHolder(itemview){
         val nameTextView: TextView = itemView.findViewById(R.id.dct_name)

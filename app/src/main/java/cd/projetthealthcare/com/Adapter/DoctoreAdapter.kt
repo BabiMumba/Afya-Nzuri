@@ -8,14 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import cd.projetthealthcare.com.Model.Doctore
-import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.Model.MedecinMdl
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.View.ProfileDoctoreActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
-class DoctoreAdapter(val liste:ArrayList<Medecin>): RecyclerView.Adapter<DoctoreAdapter.UserViewHolder>() {
+class DoctoreAdapter(val liste:ArrayList<MedecinMdl>): RecyclerView.Adapter<DoctoreAdapter.UserViewHolder>() {
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.dct_name)
         val specialiteTextView: TextView = itemView.findViewById(R.id.dct_domaine)

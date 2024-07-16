@@ -46,7 +46,7 @@ class MainViewModel():ViewModel() {
                         "timestamp" to message.time,
                         "senderId" to message.senderId,
                         "receiverId" to message.receiverId,
-                        "isDoctor" to message.statedoctoe.sender,
+                        "estDocteur" to message.statedoctoe.sender,
                         "name" to message.user.receivername,
                         "genre" to message.user.genre
                     ))
@@ -57,7 +57,7 @@ class MainViewModel():ViewModel() {
                         "timestamp" to message.time,
                         "senderId" to message.senderId,
                         "receiverId" to message.receiverId,
-                        "isDoctor" to message.statedoctoe.receiver,
+                        "estDocteur" to message.statedoctoe.receiver,
                         "name" to message.user.sendername,
                         "genre" to message.user.genre
                     ))

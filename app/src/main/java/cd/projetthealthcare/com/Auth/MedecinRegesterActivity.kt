@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.Model.MedecinMdl
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.Utils.Utils.checkgenre
@@ -54,7 +54,7 @@ class MedecinRegesterActivity : AppCompatActivity() {
 
     }
 
-    fun saveuser(medecin: Medecin){
+    fun saveuser(medecin: MedecinMdl){
         //save user in database
         val db = FirebaseFirestore.getInstance()
         db.collection(MEDECIN)
@@ -77,7 +77,7 @@ class MedecinRegesterActivity : AppCompatActivity() {
         val auth = FirebaseAuth.getInstance()
         if (checkFields()){
             val id = Utils.getUID(binding.edtEmail.text.toString())
-            val medecin = Medecin(
+            val medecin = MedecinMdl(
                 id,
                 binding.genreChoice.selectedItem.toString(),
                 binding.edtName.text.toString(),

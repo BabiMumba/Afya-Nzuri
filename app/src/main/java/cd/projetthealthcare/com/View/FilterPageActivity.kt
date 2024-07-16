@@ -3,15 +3,11 @@ package cd.projetthealthcare.com.View
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import cd.projetthealthcare.com.Adapter.DoctoreAdapter
-import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.Model.MedecinMdl
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.MEDECIN
-import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.databinding.ActivityFilterPageBinding
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
@@ -35,7 +31,7 @@ class FilterPageActivity : AppCompatActivity() {
     fun GetData(domaine: String){
         // Get data from the database
         binding.loader.visibility = View.VISIBLE
-        val liste_docteur = ArrayList<Medecin>()
+        val liste_docteur = ArrayList<MedecinMdl>()
         val db = FirebaseFirestore.getInstance()
         db.collection(MEDECIN)
             .limit(3)
@@ -44,7 +40,7 @@ class FilterPageActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     liste_docteur.clear()
                     for (document in it.result!!) {
-                        val doctore = document.toObject(Medecin::class.java)
+                        val doctore = document.toObject(MedecinMdl::class.java)
                         if (doctore.specialite == domaine) {
                             liste_docteur.add(doctore)
                         }

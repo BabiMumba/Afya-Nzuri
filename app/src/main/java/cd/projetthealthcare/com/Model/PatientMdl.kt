@@ -1,6 +1,6 @@
 package cd.projetthealthcare.com.Model
 
-data class Patient(
+data class PatientMdl(
     val adresse: String,
     val age: Int,
     val email: String,

@@ -1,6 +1,6 @@
 package cd.projetthealthcare.com.Model
 
-data class Medecin(
+data class MedecinMdl(
     val id: String,
     val genre: String,
     val nom: String,

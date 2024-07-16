@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.Model.MedecinMdl
+import cd.projetthealthcare.com.Model.docteurInfo
+import cd.projetthealthcare.com.Model.patientInfo
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.RENDEVOUS
@@ -19,6 +18,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -59,7 +59,7 @@ class ProfileDoctoreActivity : AppCompatActivity() {
         db.collection(MEDECIN).document(id!!).get().addOnSuccessListener {
             if (it.exists()){
                 inivisi(false)
-                val medecin = it.toObject(Medecin::class.java)
+                val medecin = it.toObject(MedecinMdl::class.java)
                 binding.nameDoctor.text = "${medecin!!.nom} ${medecin.prenom}"
                 binding.specialiteDoc.text = medecin.specialite
                 binding.hoptitalDoc.text = medecin.hopital
@@ -120,40 +120,39 @@ class ProfileDoctoreActivity : AppCompatActivity() {
         bottomSheetDialog.show()
     }
     fun sendData(heure:String,date:String,description:String){
+        val my_genre = Utils.ishomme(this)
         val sdf = SimpleDateFormat("dd/M/yyyy HH:M")
         val date_id = SimpleDateFormat("dd-M-yyyy-HH-M")
         val date_dins = sdf.format(Date()).toString()
-        val firestore = FirebaseFirestore.getInstance()
         val id_docteur = intent.getStringExtra("id")
         val mail = FirebaseAuth.getInstance().currentUser!!.email.toString()
         val id_patient = Utils.getUID(mail)
-        val id = FirebaseFirestore.getInstance().collection(RENDEVOUS).document().id
+        val id = FirebaseDatabase.getInstance().reference.push().key.toString()
+        val gr = if (my_genre) "femme" else "homme"
 
+        val database = FirebaseDatabase.getInstance()
+        val datapatient = patientInfo(Utils.username(this),gr)
+        val datacta= docteurInfo(binding.nameDoctor.text.toString(),binding.specialiteDoc.text.toString(),gr)
         val rendevous = hashMapOf(
             "id" to id,
             "date" to date,
             "heure" to heure,
-            "docteur" to binding.nameDoctor.text.toString(),
-            "specialite" to binding.specialiteDoc.text.toString(),
-            "image" to "",
             "status" to "0",
             "hopital" to binding.hoptitalDoc.text.toString(),
             "id_patient" to id_patient,
             "id_docteur" to id_docteur,
             "date_rdv" to date_dins,
-            "description" to description
+            "description" to description,
+            //for docteur
+            "patient" to datapatient,
+            //for patient
+            "medecin" to datacta
         )
-        firestore
-            .collection(RENDEVOUS)
-            .document(id)
-            .set(rendevous)
-            .addOnCompleteListener {
-                if (it.isSuccessful){
-                    Utils.showToast(this,"Rendez-vous envoyé")
-                }else{
-                    Utils.showToast(this,"Erreur d'envoie")
-                }
-            }
+        database.getReference(RENDEVOUS).child(id).setValue(rendevous).addOnSuccessListener {
+            Utils.showToast(this,"Rendez-vous envoyé")
+        }.addOnFailureListener {
+            Utils.showToast(this,"Erreur d'envoi")
+        }
     }
 
 }

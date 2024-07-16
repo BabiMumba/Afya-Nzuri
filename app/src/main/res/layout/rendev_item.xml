@@ -35,6 +35,8 @@
                     android:fontFamily="@font/poppins_semibold"
                     />
                 <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/dct_specialite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -162,6 +164,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/dct_action_patient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
@@ -189,6 +192,40 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:backgroundTint="@color/primary"
                 android:id="@+id/dct_edit"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dct_action"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal"
+            >
+            <com.google.android.material.button.MaterialButton
+                app:cornerRadius="@dimen/_2sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Refuser"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/red"
+                android:id="@+id/dct_refuse"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Accepter"
+                app:cornerRadius="@dimen/_2sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:backgroundTint="@color/vert"
+                android:id="@+id/dct_accept"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
                 />

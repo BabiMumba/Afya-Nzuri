@@ -23,6 +23,14 @@
         android:contentInsetStartWithNavigation="0dp"
         android:contentInsetEnd="0dp"
         />
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminate="true"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:padding="@dimen/_5sdp"
         android:layout_width="match_parent"
@@ -50,5 +58,30 @@
         android:backgroundTint="@color/primary"
         android:elevation="@dimen/_5sdp"
         />
+    <LinearLayout
+        android:id="@+id/empty_chat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/empty_calendar"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Vous n'avez pas de rendez-vous\n Cliquer sur le bouton + pour ajouter un rendez-vous"
+            android:textSize="@dimen/_12sdp"
+            android:layout_gravity="center"
+            android:id="@+id/empty_text"
+            android:textColor="@color/secondary_text"
+            />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -2,15 +2,13 @@ package cd.projetthealthcare.com.Auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import cd.projetthealthcare.com.MainActivity
-import cd.projetthealthcare.com.Model.Patient
+import cd.projetthealthcare.com.Model.PatientMdl
 import cd.projetthealthcare.com.R
-import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.PATIANT
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.Utils.Utils.checkgenre
@@ -47,7 +45,7 @@ class PatientLoginActivity : AppCompatActivity() {
             val db = FirebaseFirestore.getInstance()
             db.collection(PATIANT).document(uid).get().addOnSuccessListener {
                 if (it.exists()) {
-                    val patient = it.toObject(Patient::class.java)
+                    val patient = it.toObject(PatientMdl::class.java)
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
                             checkgenre(this,patient!!.genre)

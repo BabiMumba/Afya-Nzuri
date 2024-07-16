@@ -14,7 +14,10 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Locale.setDefault(Locale("fr"))
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        Locale.setDefault(Locale("fr"))//pour changer la langue de l'application en français
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)//pour désactiver le mode nuit
+        //pour changer le time en +2
+        val timeZone = TimeZone.getTimeZone("GMT+2")
+        TimeZone.setDefault(timeZone)
     }
 }

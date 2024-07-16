@@ -1,8 +1,10 @@
 package cd.projetthealthcare.com.Adapter
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import cd.projetthealthcare.com.Model.ItemChat
 import cd.projetthealthcare.com.R
@@ -25,12 +27,12 @@ class ItemChatAdapter(val liste_message:ArrayList<ItemChat>):RecyclerView.Adapte
     override fun onBindViewHolder(holder: ItemChatAdapter.ViewHolder, position: Int) {
         val item = liste_message[position]
         val contexte = holder.itemView.context
-
             holder.binding.userName.text = item.name
 
+            Log.d("TAG", "docteur ${item.name}: ${item.estDocteur}")
 
-        Log.d("TAG", "onBindViewHolder: ${item.isDoctor}")
-           if (item.isDoctor) {
+        Log.d("TAG", "onBindViewHolder: ${item.estDocteur}")
+           if (item.estDocteur) {
                if (item.genre == "Femme") {
                    holder.binding.imageProfile.setImageResource(R.drawable.docteur)
                } else {
@@ -44,6 +46,8 @@ class ItemChatAdapter(val liste_message:ArrayList<ItemChat>):RecyclerView.Adapte
                 }
            }
 
+        val heure = Utils.convertTime(item.timestamp)
+        holder.binding.dateMsg.text = heure
         holder.binding.lastMessage.text = item.lastMessage
         holder.itemView.setOnClickListener {
             val receiver = if (item.senderId == viewModel.myUid()){
@@ -51,7 +55,13 @@ class ItemChatAdapter(val liste_message:ArrayList<ItemChat>):RecyclerView.Adapte
             }else{
                 item.senderId
             }
-            Utils.newIntentWithExtra(contexte,ChatActivity::class.java,"id_sender",receiver)
+            val intent = Intent(contexte, ChatActivity::class.java)
+            intent.putExtra("id_sender", receiver)
+            intent.putExtra("isdoct", item.estDocteur)
+            intent.putExtra("name", item.name)
+            intent.putExtra("imadoctore",Utils.IsDoctor(contexte))
+            intent.putExtra("genre",item.genre)
+            startActivity(contexte,intent,null)
         }
     }
 

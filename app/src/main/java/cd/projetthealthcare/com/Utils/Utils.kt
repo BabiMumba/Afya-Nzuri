@@ -8,19 +8,16 @@ import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.ImageView
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import cd.bmduka.com.Utils.DATA
 import cd.projetthealthcare.com.Model.Hopital
-import cd.projetthealthcare.com.Model.Medecin
-import cd.projetthealthcare.com.Model.Patient
+import cd.projetthealthcare.com.Model.MedecinMdl
+import cd.projetthealthcare.com.Model.PatientMdl
 import cd.projetthealthcare.com.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.firebase.firestore.FirebaseFirestore
-import java.security.Timestamp
 
 
 object Utils {
@@ -78,14 +75,14 @@ object Utils {
 
         return id_user
     }
-    fun savename(context: Context,name_user:Patient){
+    fun savename(context: Context,name_user:PatientMdl){
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("nom",name_user.nom)
         editor.putString("prenom",name_user.prenom)
         editor.apply()
     }
-    fun savenameDoctore(context: Context,name_user:Medecin){
+    fun savenameDoctore(context: Context,name_user:MedecinMdl){
         val sharedPreferences = context.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("nom",name_user.nom)
@@ -140,6 +137,13 @@ object Utils {
         }else{
             savehomme(context,true)
         }
+    }
+    //fonction pour convertir timestamp en date et heure
+    fun convertTime(time: Long): String {
+        val date = java.sql.Timestamp(time).toString().split(" ")[0]
+        //heure sera ajouter +2h
+        val heure = java.sql.Timestamp(time).toString().split(" ")[1].split(":")
+        return "${heure[0]}:${heure[1]}"
     }
 
     fun getAge(toString: String): Int {

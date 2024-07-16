@@ -1,21 +1,18 @@
 package cd.projetthealthcare.com.Auth
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import cd.projetthealthcare.com.MainActivity
-import cd.projetthealthcare.com.Model.Medecin
+import cd.projetthealthcare.com.Model.MedecinMdl
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.Utils.Utils.checkgenre
 import cd.projetthealthcare.com.databinding.ActivityMedecinLoginBinding
-import cd.projetthealthcare.com.databinding.ActivityPatientLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -48,7 +45,7 @@ class MedecinLoginActivity : AppCompatActivity() {
            val uid = Utils.getUID(email)
            FirebaseFirestore.getInstance()
               .collection(MEDECIN).document(uid).get().addOnSuccessListener {user->
-                  val medecin = user.toObject(Medecin::class.java)
+                  val medecin = user.toObject(MedecinMdl::class.java)
                 if (user.exists()) {
                      FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener {it->
                           if (it.isSuccessful) {

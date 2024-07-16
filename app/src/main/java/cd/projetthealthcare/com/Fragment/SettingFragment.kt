@@ -68,6 +68,9 @@ class SettingFragment : Fragment() {
     }
     fun GetName(){
         binding.profileName.text = Utils.username(requireActivity())
+        if (Utils.IsDoctor(requireActivity())){
+            binding.editCount.visibility = View.GONE
+        }
     }
 
     override fun onResume() {

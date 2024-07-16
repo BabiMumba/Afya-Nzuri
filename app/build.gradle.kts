@@ -60,7 +60,6 @@ dependencies {
     implementation ("com.intuit.ssp:ssp-android:1.0.6")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.tbuonomo:dotsindicator:5.0")
-
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 

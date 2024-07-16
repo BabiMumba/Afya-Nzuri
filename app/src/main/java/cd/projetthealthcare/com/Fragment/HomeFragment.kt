@@ -1,18 +1,14 @@
 package cd.projetthealthcare.com.Fragment
 
-import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import cd.projetthealthcare.com.Adapter.DoctoreAdapter
 import cd.projetthealthcare.com.Adapter.Speciality
-import cd.projetthealthcare.com.Model.Doctore
-import cd.projetthealthcare.com.Model.Medecin
-import cd.projetthealthcare.com.R
+import cd.projetthealthcare.com.Model.MedecinMdl
 import cd.projetthealthcare.com.Utils.MEDECIN
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.Utils.Utils.iniprofile
@@ -75,7 +71,7 @@ class HomeFragment : Fragment() {
 
     fun iniDoctore() {
         binding.loader.visibility = View.VISIBLE
-        val liste_docteur = ArrayList<Medecin>()
+        val liste_docteur = ArrayList<MedecinMdl>()
         val db = FirebaseFirestore.getInstance()
         val email = FirebaseAuth.getInstance().currentUser!!.email.toString()
         val myid = Utils.getUID(email)
@@ -86,7 +82,7 @@ class HomeFragment : Fragment() {
                 if (it.isSuccessful) {
                     liste_docteur.clear()
                     for (document in it.result!!) {
-                        val doctore = document.toObject(Medecin::class.java)
+                        val doctore = document.toObject(MedecinMdl::class.java)
                         if (doctore.id != myid) {
                             liste_docteur.add(doctore)
                         }
