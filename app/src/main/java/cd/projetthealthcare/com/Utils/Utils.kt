@@ -17,6 +17,7 @@ import cd.projetthealthcare.com.Model.PatientMdl
 import cd.projetthealthcare.com.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -26,15 +27,13 @@ object Utils {
         Log.d("message", message)
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
+    fun showsnakbar(view: View, message: String) {
+        Log.d("message", message)
+        Toast.makeText(view.context, message, Toast.LENGTH_SHORT).show()
+    }
     //new intent
     fun newIntent(context: Context, activity: Class<*>) {
         context.startActivity(Intent(context, activity))
-    }
-    //new intent with extra
-    fun newIntentWithExtra(context: Context, activity: Class<*>, key: String, value: String) {
-        val intent = Intent(context, activity)
-        intent.putExtra(key, value)
-        context.startActivity(intent)
     }
     //new intent finish
     fun newIntentFinish(context: Context, activity: Class<*>) {
@@ -201,14 +200,26 @@ object Utils {
 
     fun AnnulerRendev(id:String,context: Context){
         //supprimer le rendez-vous
-        val db = FirebaseFirestore.getInstance()
-        db.collection(RENDEVOUS).document(id).delete()
+        val db = FirebaseDatabase.getInstance()
+        db.getReference(RENDEVOUS).child(id).removeValue()
             .addOnSuccessListener {
                 showToast(context,"Rendez-vous annulé")
             }
             .addOnFailureListener {
-                showToast(context,"Erreur lors de l'annulation du rendez-vous")
+                showToast(context,"Erreur d'annulation du rendez-vous")
             }
+    }
+
+    fun changerStatus(idRendev: String, status: String, context: Context) {
+        val db= FirebaseDatabase.getInstance()
+        db.getReference(RENDEVOUS).child(idRendev).child("status").setValue(status)
+            .addOnSuccessListener {
+                showToast(context,"Status changé")
+            }
+            .addOnFailureListener {
+                showToast(context,"Erreur de changement de status")
+            }
+
     }
 
 

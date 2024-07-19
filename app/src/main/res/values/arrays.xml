@@ -24,5 +24,67 @@
         <item name="8">Generaliste</item>
         <item name="9">Radiologue</item>
     </string-array>
+    <!--frequence-->
+    <string-array name="frequence">
+        <item name="1">Frequence</item>
+        <item name="2">1 fois par jour</item>
+        <item name="3">2 fois par jour</item>
+        <item name="4">3 fois par jour</item>
+        <item name="5">4 fois par jour</item>
+        <item name="6">5 fois par jour</item>
+        <item name="7">6 fois par jour</item>
+    </string-array>
+    <!--dosage-->
+    <string-array name="dosage">
+        <item name="1">Dosage</item>
+        <item name="2">1 comprime</item>
+        <item name="3">2 comprime</item>
+        <item name="4">3 comprime</item>
+        <item name="5">4 comprime</item>
+        <item name="6">5 comprime</item>
+        <item name="7">6 comprime</item>
+    </string-array>
+    <!--duree-->
+    <string-array name="duree">
+        <item name="1">Duree</item>
+        <item name="2">1 jour</item>
+        <item name="3">2 jours</item>
+        <item name="4">3 jours</item>
+        <item name="5">4 jours</item>
+        <item name="6">5 jours</item>
+        <item name="7">6 jours</item>
+        <item name="8">7 jours</item>
+        <item name="9">8 jours</item>
+        <item name="10">9 jours</item>
+        <item name="11">10 jours</item>
+        <item name="31">1 mois</item>
+        <item name="32">2 mois</item>
+    </string-array>
+    <string-array name="heure">
+        <item name="1">Heure</item>
+        <item name="2">Matin</item>
+        <item name="3">Midi</item>
+        <item name="4">Soir</item>
+        <item name="5">Matin et soir</item>
+        <item name="6">Midi et soir</item>
+        <item name="7">Matin, midi et soir</item>
+    </string-array>
+    <!--unite-->
+    <string-array name="unite">
+        <item name="1">Unite</item>
+        <item name="2">mg</item>
+        <item name="3">g</item>
+        <item name="4">ml</item>
+        <item name="5">l</item>
+        <item name="6">cuillere</item>
+        <item name="7">goutte</item>
+        <item name="8">comprime</item>
+        <item name="9">sachet</item>
+        <item name="10">ampoule</item>
+        <item name="11">suppositoire</item>
+        <item name="12">pommade</item>
+        <item name="13">sirop</item>
+    </string-array>
+
 
 </resources>

@@ -27,18 +27,20 @@ class ItemChatAdapter(val liste_message:ArrayList<ItemChat>):RecyclerView.Adapte
     override fun onBindViewHolder(holder: ItemChatAdapter.ViewHolder, position: Int) {
         val item = liste_message[position]
         val contexte = holder.itemView.context
-            holder.binding.userName.text = item.name
 
             Log.d("TAG", "docteur ${item.name}: ${item.estDocteur}")
 
         Log.d("TAG", "onBindViewHolder: ${item.estDocteur}")
            if (item.estDocteur) {
+               holder.binding.userName.text = "Dr ${item.name}"
                if (item.genre == "Femme") {
+
                    holder.binding.imageProfile.setImageResource(R.drawable.docteur)
                } else {
                    holder.binding.imageProfile.setImageResource(R.drawable.ava_doctore)
                }
            }else{
+               holder.binding.userName.text = item.name
                 if (item.genre == "Femme"){
                      holder.binding.imageProfile.setImageResource(R.drawable.femme)
                 }else{

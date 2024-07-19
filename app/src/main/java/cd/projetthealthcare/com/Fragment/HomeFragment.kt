@@ -40,10 +40,10 @@ class HomeFragment : Fragment() {
             Utils.newIntent(requireActivity(), DoctoListActivity::class.java)
         }
         binding.childTwo.setOnClickListener {
-            Utils.newIntent(requireActivity(),PrescriptionActivity::class.java)
+            Utils.newIntent(requireActivity(),FicheActivity::class.java)
         }
         binding.childOne.setOnClickListener {
-            Utils.newIntent(requireActivity(),FicheActivity::class.java)
+            Utils.newIntent(requireActivity(),PrescriptionActivity::class.java)
         }
         binding.tvUserName.text = Utils.username(requireActivity())
         return binding.root

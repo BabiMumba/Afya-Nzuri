@@ -29,6 +29,9 @@ class MessageFragment : Fragment() {
         binding = FragmentMessageBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
         iniTMessage()
+        if (Utils.IsDoctor(requireActivity())){
+            binding.fab.visibility = View.GONE
+        }
         binding.fab.setOnClickListener {
             Utils.newIntent(requireActivity(), DoctoListActivity::class.java)
         }

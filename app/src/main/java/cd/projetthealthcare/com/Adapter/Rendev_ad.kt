@@ -2,6 +2,7 @@ package cd.projetthealthcare.com.Adapter
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +42,7 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = liste[position]
+        val context = holder.itemView.context
         holder.date.text = item.date
         holder.heure.text = item.heure
         holder.hopital.text = item.hopital
@@ -64,7 +66,10 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
                 dialog.setMessage("Voulez-vous vraiment refuser le rendez-vous?")
                 dialog.setPositiveButton("Oui"){_,_ ->
                     //refuser le rendez-vous
-                    Utils.showToast(holder.itemView.context,"Rendez-vous refusé")
+                  //  Utils.showToast(holder.itemView.context,"Rendez-vous refusé")
+                    //changer le status du rendez-vous
+                    Utils.changerStatus(item.id,"2",context)
+
                 }
                 dialog.setNegativeButton("Non"){_,_ ->}
                 dialog.create().show()
@@ -76,7 +81,9 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
                 dialog.setMessage("Voulez-vous vraiment accepter le rendez-vous?")
                 dialog.setPositiveButton("Oui"){_,_ ->
                     //accepter le rendez-vous
-                    Utils.showToast(holder.itemView.context,"Rendez-vous accepté")
+                    //Utils.showToast(holder.itemView.context,"Rendez-vous accepté")
+                    //changer le status du rendez-vous
+                    Utils.changerStatus(item.id,"1",context)
                 }
                 dialog.setNegativeButton("Non"){_,_ ->}
                 dialog.create().show()
@@ -109,7 +116,6 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
         }
         holder.status.setTextColor(holder.itemView.context.resources.getColor(couleurstatus))
        val id_rendev = item.id
-        val context = holder.itemView.context
         holder.btn_annuler.setOnClickListener {
             //annuler le rendez-vous
             val dialog = AlertDialog.Builder(context)
@@ -126,9 +132,12 @@ class Rendev_ad(val liste: ArrayList<mdl_rendev>): RecyclerView.Adapter<Rendev_a
             //modifier le rendez-vous
         }
 
+
+
     }
 
     override fun getItemCount(): Int {
         return liste.size
     }
+
 }

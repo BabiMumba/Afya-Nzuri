@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_cmps"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="selectionner le patient"
+        android:layout_margin="@dimen/_10sdp"
+        android:textColor="@color/secondary_text"
+        />
+    <Spinner
+        android:layout_marginTop="@dimen/_20ssp"
+        android:background="@drawable/background_input_new"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etPatientId"
+        />
+
+    <EditText
+        android:id="@+id/etMedicationName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom du médicament"
+        android:background="@drawable/background_input_new"
+        android:layout_margin="@dimen/_10sdp"
+        />
+
+    <Spinner
+        android:id="@+id/etMedicationDosage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_new"
+        android:layout_margin="@dimen/_10sdp"
+        android:entries="@array/dosage"
+        />
+
+    <Spinner
+        android:id="@+id/etMedicationFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_new"
+        android:layout_margin="@dimen/_10sdp"
+        android:entries="@array/frequence"
+        />
+
+    <Spinner
+        android:id="@+id/etMedicationDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_new"
+        android:layout_margin="@dimen/_10sdp"
+        android:entries="@array/duree"
+
+        />
+
+    <Spinner
+        android:id="@+id/unite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_new"
+        android:layout_margin="@dimen/_10sdp"
+        android:entries="@array/unite"
+        />
+    <Spinner
+        android:id="@+id/heure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_new"
+        android:layout_margin="@dimen/_10sdp"
+        android:entries="@array/heure"
+        />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/progressBar"
+        android:indeterminate="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:visibility="gone"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSavePrescription"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Enregistrer la prescription"
+        />
+
+</LinearLayout>
