@@ -12,6 +12,8 @@ import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.PRESCRIPTION
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.databinding.ActivityPrescriptionBinding
+import com.bumptech.glide.util.Util
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class PrescriptionActivity : AppCompatActivity() {
@@ -21,7 +23,11 @@ class PrescriptionActivity : AppCompatActivity() {
         binding = ActivityPrescriptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        visiblefab()
+        binding.swipeRefresh.setColorSchemeResources(R.color.primary)
+        binding.swipeRefresh.setOnRefreshListener {
+            visiblefab()
+            binding.swipeRefresh.isRefreshing = false
+        }
 
         binding.fab.setOnClickListener {
             Utils.newIntent(this, AddPrescripActivity::class.java)
@@ -30,16 +36,67 @@ class PrescriptionActivity : AppCompatActivity() {
         binding.toolbar.backBtn.setOnClickListener {
             onBackPressed()
         }
-        getPrescription()
 
     }
 
     fun visiblefab(){
         if (Utils.IsDoctor(this)){
             binding.fab.visibility = View.VISIBLE
+            getPrescriptionDoc()
+
         }else{
+            getPrescription()
             binding.fab.visibility = View.GONE
         }
+    }
+
+
+    fun getPrescription(){
+        val mail = FirebaseAuth.getInstance().currentUser!!.email.toString()
+        val uid = Utils.getUID(mail)
+        //get prescription from firebase
+        val liste_prescrip = ArrayList<MedicalPrescription>()
+        val db = FirebaseFirestore.getInstance()
+        db.collection(PRESCRIPTION).get().addOnSuccessListener {
+            for (doc in it){
+                val prescription = doc.toObject(MedicalPrescription::class.java)
+                if(prescription.patientId==uid){
+                    liste_prescrip.add(prescription)
+                }
+            }
+            if (liste_prescrip.size==0){
+                binding.emptyView.visibility = View.VISIBLE
+            }else{
+                binding.recyclerView.adapter = PrescriptionAda(liste_prescrip)
+            }
+
+
+        }
+
+
+    }
+    fun getPrescriptionDoc(){
+        val mail = FirebaseAuth.getInstance().currentUser!!.email.toString()
+        val uid = Utils.getUID(mail)
+        //get prescription from firebase
+        val liste_prescrip = ArrayList<MedicalPrescription>()
+        val db = FirebaseFirestore.getInstance()
+        db.collection(PRESCRIPTION).get().addOnSuccessListener {
+            for (doc in it){
+                val prescription = doc.toObject(MedicalPrescription::class.java)
+                if(prescription.doctorId==uid){
+                    liste_prescrip.add(prescription)
+                }
+            }
+            if (liste_prescrip.size==0){
+                binding.emptyView.visibility = View.VISIBLE
+            }else{
+                binding.recyclerView.adapter = PrescriptionAda(liste_prescrip)
+            }
+
+        }
+
+
     }
 
     override fun onResume() {
@@ -47,19 +104,6 @@ class PrescriptionActivity : AppCompatActivity() {
         super.onResume()
     }
 
-    fun getPrescription(){
-        //get prescription from firebase
-        val liste_prescrip = ArrayList<MedicalPrescription>()
-        val db = FirebaseFirestore.getInstance()
-        db.collection(PRESCRIPTION).get().addOnSuccessListener {
-            for (doc in it){
-                val prescription = doc.toObject(MedicalPrescription::class.java)
-                liste_prescrip.add(prescription)
-            }
-            binding.recyclerView.adapter = PrescriptionAda(liste_prescrip)
-
-        }
 
 
-    }
 }

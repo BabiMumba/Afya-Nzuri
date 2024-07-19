@@ -11,8 +11,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import cd.projetthealthcare.com.Model.MedecinMdl
 import cd.projetthealthcare.com.Model.MedicalPrescription
 import cd.projetthealthcare.com.Model.Medicament
+import cd.projetthealthcare.com.Model.PatientMdl
 import cd.projetthealthcare.com.Model.userdata
 import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.PATIANT
@@ -27,8 +29,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 class AddPrescripActivity : AppCompatActivity() {
     lateinit var binding: ActivityAddPrescripBinding
     private val db = FirebaseFirestore.getInstance()
+    var IdPatient= ""
     //liste des patients
-    val liste_patients = ArrayList<String>()
+    val liste_patients = ArrayList<PatientMdl>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +52,9 @@ class AddPrescripActivity : AppCompatActivity() {
         binding.etPatientId.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val patientId = liste_patients[position]
-                Utils.showsnakbar(binding.root, "Patient ID: $patientId")
+               // Utils.showsnakbar(binding.root, "Patient ID: $patientId")
+                IdPatient = patientId.id
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -68,18 +73,31 @@ class AddPrescripActivity : AppCompatActivity() {
     }
 
     fun setupPatientSpinner() {
-        // Création d'un ArrayAdapter en utilisant la liste des patients et le layout simple_spinner_item
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, liste_patients)
-        // Spécification du layout à utiliser lorsque la liste des choix apparaît
+        // Création d'une liste de noms à partir de la liste des patients
+        val patientNames = liste_patients.map { patient -> "${patient.poste_nom} ${patient.nom}" }
+
+        // Création d'un ArrayAdapter avec la liste des noms
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, patientNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // Application de l'adapter au Spinner
         binding.etPatientId.adapter = adapter
+
+        // Définir un écouteur pour récupérer l'ID du patient sélectionné
+        binding.etPatientId.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedPatient = liste_patients[position]
+                IdPatient = selectedPatient.id // Récupérer l'ID du patient sélectionné
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Ne rien faire
+            }
+        }
     }
     private fun savePrescription(doctorId: String) {
         binding.progressBar.visibility = View.VISIBLE
         binding.btnSavePrescription.isEnabled = false
         // Récupérer les valeurs saisies dans les champs du formulaire
-        val patientId = binding.etPatientId.selectedItem.toString()
+        val patientId = IdPatient
         val prescriptionDate = ""
         val medicationName = binding.etMedicationName.text.toString()
         val medicationDosage = binding.etMedicationDosage.selectedItem.toString()
@@ -131,8 +149,10 @@ class AddPrescripActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    val patientId = document.id
+                    val patientId = document.toObject(PatientMdl::class.java)
+                    val nom ="${patientId.poste_nom} ${patientId.nom}"
                     liste_patients.add(patientId)
+
                 }
                 Log.d("TAG", "Liste des patients: $liste_patients")
             }

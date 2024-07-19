@@ -42,12 +42,15 @@ class ChatActivity : AppCompatActivity() {
         val imadoctore = intent.getBooleanExtra("imadoctore", false)
         val genre = intent.getStringExtra("genre").toString()
         val myname = Utils.username(this)
-        Log.d("TAG", "Genre1: $genre")
+        val genresender = if (ishomme(this)) "Homme" else "Femme"
+
         val myuser = user(
             myname,
             name,
-            genre)
-        Log.d("TAG", "onCreate: ${myuser.genre}")
+            genrereceiver = genresender,
+            genresender = genre
+            )
+     //   Log.d("TAG", "onCreate: ${myuser.genre}")
         Log.d("TAG", "Genre2: ${intent.getStringExtra("genre").toString()}")
         binding.userName.text = name
         if (isdoct) {
@@ -108,14 +111,6 @@ class ChatActivity : AppCompatActivity() {
             binding.recycleMessage.scrollToPosition(liste_message.size - 1)
         }
 
-       /* viewModel.GetDataUser(id_receiver) {user->
-            if (user != null){
-                binding.userName.text = user.name
-            }else{
-                binding.userName.text = "Inconnu"
-            }
-
-        }*/
     }
 
 

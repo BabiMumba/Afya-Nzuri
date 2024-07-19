@@ -20,5 +20,6 @@ class statedoctore(
 class user(
     var sendername:String = "",
     var receivername:String = "",
-    var genre:String = "",
+    var genresender:String = "",
+    var genrereceiver:String = ""
 )

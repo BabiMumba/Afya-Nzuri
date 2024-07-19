@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cd.projetthealthcare.com.Model.MedicalPrescription
+import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.databinding.ItemPrescriptionBinding
 
 
@@ -33,6 +34,14 @@ class PrescriptionAda(val liste_prescription: ArrayList<MedicalPrescription>): R
         holder.binding.etMedicationDuration.text = item.medications.duration
         holder.binding.etMedicationFrequency.text = item.medications.frequency
         holder.binding.etMedicationUnity.text = item.medications.unity
+        val contexte = holder.itemView.context
+        if (Utils.IsDoctor(contexte)){
+            holder.binding.nameUse.text = item.userdata.patientName
+        }else{
+            holder.binding.txvUser.text = "MEDECIN: "
+            holder.binding.nameUse.text = "Dr. ${item.userdata.doctorIdName}"
+        }
+
 
     }
 }

@@ -114,6 +114,7 @@ class RendeVFragment : Fragment() {
                     } else {
                         binding.progress.visibility = View.GONE
                         binding.emptyChat.visibility = View.VISIBLE
+                        binding.emptyText.text = "Actuellement vous n'avez pas de rendez-vous\n avec un patient"
                     }
                 }
 
