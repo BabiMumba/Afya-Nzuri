@@ -24,9 +24,9 @@ class PrescriptionActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.swipeRefresh.setColorSchemeResources(R.color.primary)
+        binding.swipeRefresh.isRefreshing = true
         binding.swipeRefresh.setOnRefreshListener {
             visiblefab()
-            binding.swipeRefresh.isRefreshing = false
         }
 
         binding.fab.setOnClickListener {
@@ -68,6 +68,7 @@ class PrescriptionActivity : AppCompatActivity() {
                 binding.emptyView.visibility = View.VISIBLE
             }else{
                 binding.recyclerView.adapter = PrescriptionAda(liste_prescrip)
+                binding.swipeRefresh.isRefreshing = false
             }
 
 
@@ -92,6 +93,7 @@ class PrescriptionActivity : AppCompatActivity() {
                 binding.emptyView.visibility = View.VISIBLE
             }else{
                 binding.recyclerView.adapter = PrescriptionAda(liste_prescrip)
+                binding.swipeRefresh.isRefreshing = false
             }
 
         }

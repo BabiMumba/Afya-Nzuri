@@ -48,19 +48,18 @@ class AddPrescripActivity : AppCompatActivity() {
             binding.etPatientId.visibility = View.VISIBLE
             setupPatientSpinner()
         }, 1000)
-        //quand on selectionne un patient on affiche son id
-        binding.etPatientId.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+     /*   binding.etPatientId.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val patientId = liste_patients[position]
                // Utils.showsnakbar(binding.root, "Patient ID: $patientId")
                 IdPatient = patientId.id
 
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Ne rien faire
             }
-        }
+        }*/
 
         // Récupérer l'ID du médecin actuellement connecté
         val mail = FirebaseAuth.getInstance().currentUser?.email
@@ -150,7 +149,6 @@ class AddPrescripActivity : AppCompatActivity() {
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val patientId = document.toObject(PatientMdl::class.java)
-                    val nom ="${patientId.poste_nom} ${patientId.nom}"
                     liste_patients.add(patientId)
 
                 }
