@@ -60,3 +60,8 @@ santé en établissant une connexion entre patients et médecins, indépendammen
 git clone https://github.com/BabiMumba/Afya-Nzuri.git
 ```
 2. lancer Android studio puis importer les projets
+
+
+
+*par babi mumba
+20/07/2024 etudiant en Bac2 Genie Logiciel a (esisalama) UDBL Actuellement*
