@@ -12,6 +12,36 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:orientation="vertical"
+            android:background="@color/primary"
+            android:id="@+id/toolbar"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_arrow_back_24"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/back"
+                app:tint="@color/white"
+                android:padding="@dimen/_5sdp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fiche Patient"
+                android:textSize="@dimen/_15ssp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+
+        </RelativeLayout>
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,268 +50,285 @@
             android:visibility="gone"
             android:id="@+id/progrees"
             />
-        <LinearLayout
-            android:id="@+id/container"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/_10sdp"
+            android:layout_margin="@dimen/_5sdp"
+            app:cardElevation="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+
             >
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp"
                 >
-                <ImageView
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:src="@drawable/logo_launch"
-                    android:id="@+id/iv_fiche_image"
-                    android:layout_centerVertical="true"
-                    />
-                <TextView
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_fiche"
-                    android:textSize="@dimen/_13ssp"
-                    android:textColor="@color/primary_text"
-                    android:layout_gravity="center"
-                    android:layout_centerHorizontal="true"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:textStyle="bold"
+                    >
+                    <RelativeLayout
+                        android:background="@color/primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <ImageView
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:src="@drawable/logo_launch"
+                            android:id="@+id/iv_fiche_image"
+                            android:layout_centerVertical="true"
+                            />
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_fiche"
+                            android:textSize="@dimen/_13ssp"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:textStyle="bold"
+                            />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:background="@color/grey"
                     />
-            </RelativeLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_2sdp"
-                android:background="@color/grey"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nom : "
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nom : "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Moussa"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_fiche_nom"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Moussa"
-                    android:textSize="18sp"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age : "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12ans"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_age"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Telephone : "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+243 97483552"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_telephone"
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sexe : "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="femme"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_sexe"
+                        />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:background="@color/grey"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Adresse : "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1223"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_adresse"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Renseignement Medicaux"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_13ssp"
+                    android:fontFamily="@font/poppins_semibold"
                     android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_fiche_nom"
                     />
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hopital : "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/02/2003"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_hopital_name"
+                        />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Age : "
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12ans"
-                    android:textSize="18sp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_age"
-                    />
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="date visite : "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/02/2003"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_date_visite"
+                        />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Telephone : "
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+243 97483552"
-                    android:textSize="18sp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_telephone"
-                    />
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Motif de la consultation : "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_motif"
+                        />
 
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sexe : "
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="femme"
-                    android:textSize="18sp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_sexe"
-                    />
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Allergie: "
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="moustique "
+                        android:textSize="18sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_alergie"
+                        />
 
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_2sdp"
-                android:background="@color/grey"
-                android:layout_marginTop="@dimen/_10sdp"/>
-
-            <LinearLayout
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Adresse : "
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1223"
-                    android:textSize="18sp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_adresse"
-                    />
-
+                </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Renseignement Medicaux"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:textSize="@dimen/_13ssp"
-                android:fontFamily="@font/poppins_semibold"
-                android:textColor="@color/primary_text"
-                />
-            <LinearLayout
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hopital : "
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12/02/2003"
-                    android:textSize="18sp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_hopital_name"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="date visite : "
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12/02/2003"
-                    android:textSize="18sp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_date_visite"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Motif de la visite"
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="je suis a la "
-                    android:textSize="18sp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_motif"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Allergie: "
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="moustique "
-                    android:textSize="18sp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_alergie"
-                    />
-
-            </LinearLayout>
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cd.projetthealthcare.com.Model.FicheModel
+import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.View.DetailFicheActivity
 import cd.projetthealthcare.com.databinding.ItemFicheBinding
 
@@ -29,6 +30,10 @@ class FicheAdapter(val liste_fiche: ArrayList<FicheModel>): RecyclerView.Adapter
             val intent = Intent(holder.itemView.context, DetailFicheActivity::class.java)
             intent.putExtra("id_fiche", id_fiche)
             holder.itemView.context.startActivity(intent)
+        }
+        val context = holder.itemView.context
+        if (Utils.IsDoctor(context)){
+            holder.binding.tvFicheTitle.text = fiche.userinfo.nomcomplete
         }
     }
 

@@ -12,6 +12,7 @@ import cd.projetthealthcare.com.R
 import cd.projetthealthcare.com.Utils.FICHEMEDICAL
 import cd.projetthealthcare.com.Utils.Utils
 import cd.projetthealthcare.com.databinding.ActivityFicheBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class FicheActivity : AppCompatActivity() {
@@ -26,6 +27,9 @@ class FicheActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {
             Utils.newIntent(this, AddFicheActivity::class.java)
         }
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
         GetFiche()
     }
 
@@ -37,15 +41,30 @@ class FicheActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        GetFiche()
+        super.onResume()
+    }
     fun GetFiche(){
         val db = FirebaseFirestore.getInstance()
+        val mail = FirebaseAuth.getInstance().currentUser?.email.toString()
         db.collection(FICHEMEDICAL)
             .get()
             .addOnSuccessListener {
                 result ->
             for (document in result) {
                 val fiche = document.toObject(FicheModel::class.java)
-                liste_fiche.add(fiche)
+                if (Utils.IsDoctor(this)){
+                    val uid = Utils.getUID(mail)
+                    if (fiche.dataSource.id_doctor == uid){
+                        liste_fiche.add(fiche)
+                    }
+                }else{
+                    val uid = Utils.getUID(mail)
+                    if (fiche.dataSource.id_patient == uid){
+                        liste_fiche.add(fiche)
+                    }
+                }
             }
             if (liste_fiche.size > 0){
                 binding.rvFiche.adapter = FicheAdapter(liste_fiche)

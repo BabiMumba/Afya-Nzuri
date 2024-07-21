@@ -101,9 +101,14 @@ class MainActivity : AppCompatActivity() {
                 view.callBtn.visibility= if (item.isSelected) View.VISIBLE else View.GONE
 
                 view.callBtn.setOnClickListener {
-                    val numero = item.telephone
+                   /* val numero = item.telephone
                     val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", numero, null))
-                    startActivity(intent)
+                    startActivity(intent)*/
+                    val nume = "tel:${item.telephone}"
+                    val i = Intent(Intent.ACTION_CALL)
+                    i.data= Uri.parse(nume)
+                    startActivity(i)
+
 
                 }
             }

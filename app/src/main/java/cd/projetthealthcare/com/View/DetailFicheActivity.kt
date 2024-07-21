@@ -20,6 +20,9 @@ class DetailFicheActivity : AppCompatActivity() {
         binding = ActivityDetailFicheBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
         binding.container.visibility = View.GONE
         GetDataFiche()
 

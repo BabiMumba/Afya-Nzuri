@@ -100,9 +100,11 @@
             android:name=".View.OnboardActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Base.Theme.Home" />
+            android:theme="@style/Base.Theme.Home"
+            tools:ignore="DiscouragedApi" />
         <activity
             android:name=".View.SplashScreenActivity"
             android:exported="true">

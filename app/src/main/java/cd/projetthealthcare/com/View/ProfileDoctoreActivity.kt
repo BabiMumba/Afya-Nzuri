@@ -150,6 +150,7 @@ class ProfileDoctoreActivity : AppCompatActivity() {
         )
         database.getReference(RENDEVOUS).child(id).setValue(rendevous).addOnSuccessListener {
             Utils.showToast(this,"Rendez-vous envoyé")
+            onBackPressed()
         }.addOnFailureListener {
             Utils.showToast(this,"Erreur d'envoi")
         }

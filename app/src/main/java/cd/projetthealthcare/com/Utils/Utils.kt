@@ -166,13 +166,13 @@ object Utils {
 
     fun liste_hop():ArrayList<Hopital>{
         val liste_hop = ArrayList<Hopital>()
-        liste_hop.add(Hopital(1,"Hopital General de Kinshasa", telephone = "+243 975937553"))
-        liste_hop.add(Hopital(2,"Hopital du Cinquantenaire", telephone = "+243 996745324"))
-        liste_hop.add(Hopital(3,"Hopital General de Reference de Lubumbashi", telephone = "+243 813456780"))
-        liste_hop.add(Hopital(4,"Hopital General de Reference de Kisangani", telephone = "+243 895643231"))
-        liste_hop.add(Hopital(5,"Hôpital Provincial de Matadi", telephone = "+243 853256322"))
-        liste_hop.add(Hopital(6,"Sendwe hopital", telephone = "+243 975937553"))
-        liste_hop.add(Hopital(7,"Clinic Universitaire", telephone = "+243 975388833"))
+        liste_hop.add(Hopital(1,"Hopital Sendwe", telephone = "+243 975937553"))//babi
+        liste_hop.add(Hopital(2,"Hopital du Cinquantenaire", telephone = "+243 979405343"))//pierre
+        liste_hop.add(Hopital(3,"Hopital General de Reference de Lubumbashi", telephone = "+243 977000013"))//phina
+        liste_hop.add(Hopital(4,"Gecamine sud", telephone = "+243 831501106"))//angel
+        liste_hop.add(Hopital(5,"Hôpital La Grace", telephone = "+243 970431122"))//Yves
+        liste_hop.add(Hopital(6,"Afya Don Bosco", telephone = "+243 973070991"))//lizzy
+        liste_hop.add(Hopital(7,"Clinic Universitaire", telephone = "+243 973038270"))//pascal
         return liste_hop
     }
 

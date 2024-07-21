@@ -76,7 +76,6 @@ class ChatActivity : AppCompatActivity() {
         val mystate = statedoctore(isdoct, imadoctore)
 
         InitMessages(id_receiver)
-        Toast.makeText(this, "$id_receiver", Toast.LENGTH_SHORT).show()
         
         binding.btnSend.setOnClickListener {
             val message = binding.message.text.toString()

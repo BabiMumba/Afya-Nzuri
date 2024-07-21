@@ -5,263 +5,310 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_fiche"
-        android:textSize="24sp"
-        android:textColor="@color/primary_text"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:textStyle="bold"
-        />
-
-    <androidx.core.widget.NestedScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="?actionBarSize"
+        android:orientation="vertical"
+        android:background="@color/primary"
+        android:id="@+id/toolbar"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:id="@+id/back"
+            app:tint="@color/white"
+            android:padding="@dimen/_5sdp"
+            />
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/primary_text"
-                android:text="ENSEIGNEMENTS ADMINISTRATIFS"
-                android:textSize="@dimen/_12ssp"
-                android:textStyle="bold" />
+            android:text="Fiche Patient"
+            android:textSize="@dimen/_15ssp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_input_new"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:padding="@dimen/_12sdp"
-                android:id="@+id/hopital_choice"
-                android:entries="@array/genre"
-                android:spinnerMode="dialog"
-                />
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_input_new"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:padding="@dimen/_12sdp"
-                android:id="@+id/docteur_choice"
-                android:entries="@array/genre"
-                android:spinnerMode="dialog"
-                />
+    </RelativeLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:padding="@dimen/_10sdp"
+      >
+      <com.google.android.material.card.MaterialCardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:cardCornerRadius="@dimen/_5sdp"
+          android:layout_marginTop="@dimen/_10sdp"
+          android:layout_marginBottom="@dimen/_10sdp"
+          >
+          <RelativeLayout
+              android:background="@color/primary"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              >
+              <ImageView
+                  android:layout_width="@dimen/_50sdp"
+                  android:layout_height="@dimen/_50sdp"
+                  android:src="@drawable/logo_launch"
+                  android:id="@+id/iv_fiche_image"
+                  android:layout_centerVertical="true"
+                  />
+              <TextView
+                  android:layout_centerVertical="true"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/title_fiche"
+                  android:textSize="@dimen/_13ssp"
+                  android:textColor="@color/white"
+                  android:layout_gravity="center"
+                  android:layout_centerHorizontal="true"
+                  android:layout_marginBottom="@dimen/_10sdp"
+                  android:textStyle="bold"
+                  />
+          </RelativeLayout>
+      </com.google.android.material.card.MaterialCardView>
 
+      <androidx.core.widget.NestedScrollView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/primary_text"
-                android:text="Information du Patient"
-                android:textSize="@dimen/_12ssp"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/_10sdp"
-                />
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:hint="nom complet">
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:text="ENSEIGNEMENTS ADMINISTRATIFS"
+                  android:textColor="@color/primary_text"
+                  android:textSize="@dimen/_12ssp"
+                  android:textStyle="bold" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nom_comple"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:background="@drawable/background_input_new"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Age"
-                android:layout_marginTop="@dimen/_10sdp"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:background="@drawable/background_input_new"
-
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Telephone">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPhoneNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_input_new"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_input_new"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:padding="@dimen/_12sdp"
-                android:id="@+id/genre_choice"
-                android:entries="@array/genre"
-                android:spinnerMode="dialog"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adresse"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:textColor="@color/primary_text"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Adresse complete"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_input_new"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
+              <Spinner
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/background_input_new"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:padding="@dimen/_12sdp"
+                  android:id="@+id/hopital_choice"
+                  android:entries="@array/genre"
+                  android:spinnerMode="dialog"
+                  />
+              <Spinner
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/background_input_new"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:padding="@dimen/_12sdp"
+                  android:id="@+id/docteur_choice"
+                  android:entries="@array/genre"
+                  android:spinnerMode="dialog"
+                  />
 
 
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:text="Informations du Patient"
+                  android:textColor="@color/primary_text"
+                  android:textSize="@dimen/_12ssp"
+                  android:textStyle="bold" />
+
+              <com.google.android.material.textfield.TextInputLayout
+                  android:visibility="gone"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:hint="nom complet">
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/nom_comple"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:inputType="textPersonName"
+                      android:background="@drawable/background_input_new"
+                      />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+              <com.google.android.material.textfield.TextInputLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="Age"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  >
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/etAge"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:inputType="number"
+                      android:background="@drawable/background_input_new"
+
+                      />
+
+              </com.google.android.material.textfield.TextInputLayout>
+              <com.google.android.material.textfield.TextInputLayout
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="Telephone">
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/etPhoneNumber"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/background_input_new"
+                      />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+              <Spinner
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/background_input_new"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:padding="@dimen/_12sdp"
+                  android:id="@+id/genre_choice"
+                  android:entries="@array/genre"
+                  android:spinnerMode="dialog"
+                  />
+
+              <com.google.android.material.textfield.TextInputLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="Adresse complete"
+                  >
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/etAddress"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/background_input_new"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:text="Renseignements médicaux"
+                  android:textColor="@color/primary_text"
+                  android:textSize="18sp"
+                  android:textStyle="bold" />
+
+
+              <com.google.android.material.textfield.TextInputLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="Date de visite">
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/etVisitDate"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:inputType="date"
+                      android:background="@drawable/background_input_new"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+              <com.google.android.material.textfield.TextInputLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="Motif de votre consultation"
+                  >
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/motif_visite"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/background_input_new"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      android:inputType="textMultiLine"
+                      android:paddingBottom="@dimen/_50ssp"
+                      />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:text="Antécédents médicaux:"
+                  android:textColor="@color/primary_text"
+                  android:textSize="18sp"
+                  android:textStyle="bold" />
+              <com.google.android.material.textfield.TextInputLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="traitement encours">
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/etTraitement"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:inputType="text"
+                      android:background="@drawable/background_input_new"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+              <com.google.android.material.textfield.TextInputLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="@dimen/_10sdp"
+                  android:hint="allergies">
+                  >
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/etAllergies"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/background_input_new"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      android:inputType="text"
+                      />
+
+              </com.google.android.material.textfield.TextInputLayout>
 
 
 
+          </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RENSEIGNEMENTS MEDICAUX"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:textSize="18sp"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date de la visite"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/primary_text"
-                />
+      </androidx.core.widget.NestedScrollView>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Date">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etVisitDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:background="@drawable/background_input_new"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Motif de votre consultation"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/motif_visite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_input_new"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:inputType="textMultiLine"
-                    android:paddingBottom="@dimen/_50ssp"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Antécédents médicaux:"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:textSize="18sp"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="traitement encours">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etTraitement"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:background="@drawable/background_input_new"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:hint="allergies">
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAllergies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_input_new"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:inputType="text"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btnSave"
+          android:layout_width="match_parent"
+          android:textAllCaps="false"
+          app:cornerRadius="@dimen/_4sdp"
+          android:layout_height="wrap_content"
+          android:text="Enrgistrer et envoyer"
+          />
 
 
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:textAllCaps="false"
-        app:cornerRadius="@dimen/_4sdp"
-        android:layout_height="wrap_content"
-        android:text="Enrgistrer et envoyer"
-        />
+  </LinearLayout>
 
 </LinearLayout>

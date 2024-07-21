@@ -47,6 +47,9 @@ class AddFicheActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             saveFiche()
         }
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
 
 
     }
@@ -114,8 +117,9 @@ class AddFicheActivity : AppCompatActivity() {
             binding.etTraitement.text.toString(),
             binding.motifVisite.text.toString()
         )
+        val nomcomple = Utils.username(this)
         val userinfo = userinfo_fiche(
-            binding.nomComple.text.toString(),
+            nomcomple,
             binding.etAge.text.toString(),
             binding.genreChoice.selectedItem.toString(),
             binding.etAddress.text.toString(),
@@ -129,6 +133,7 @@ class AddFicheActivity : AppCompatActivity() {
         )
         db.collection(FICHEMEDICAL).document(id_fiche).set(fiche).addOnSuccessListener {
             Utils.showsnakbar(binding.root, "Fiche enregistrée avec succès")
+            onBackPressed()
             binding.btnSave.isEnabled = true
         }.addOnFailureListener {
             Utils.showToast(this, "Erreur lors de l'enregistrement de la fiche")
